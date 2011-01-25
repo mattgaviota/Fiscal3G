@@ -1,0 +1,20 @@
+[global]
+model = AT
+port = /dev/ttyACM0
+connection = serial
+
+[phone_huawei]
+port = /dev/ttyUSB1
+connection = serial
+model = AT
+smsc_timeout = 10
+
+[phone_6101]
+port = /dev/ttyUSB0
+connection = serial
+model = 6101
+
+[phone_zte]
+port = /dev/ttyUSB2
+connection = serial
+model = AT
