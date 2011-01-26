@@ -9,7 +9,7 @@ import optparse
 
 
 class Monitor(object):
-    def __init__(self):
+    def __init__(self, callback=None):
         self.loop = DBusGMainLoop()
         self.system = dbus.SystemBus(mainloop=self.loop)
 
@@ -114,8 +114,7 @@ def get_options():
         help="Decrement verbosity")
 
     # Define the default options
-    optparser.set_defaults(verbose=0, quiet=0, timeout=1, threads=4,
-        all=False)
+    optparser.set_defaults(verbose=0, quiet=0)
 
     # Process the options
     return optparser.parse_args()
