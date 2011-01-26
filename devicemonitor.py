@@ -5,6 +5,7 @@ import dbus
 import gobject
 from decoradores import Verbose
 from debug import debug
+import optparse
 
 
 class Monitor(object):
@@ -28,7 +29,7 @@ class Monitor(object):
 
 
         self.modems = {}
-        for modem in self.get_all_gsm():
+        for modem in self.get_all_modems():
             self.add_device(modem)
 
         self.loop = gobject.MainLoop()
@@ -47,14 +48,18 @@ class Monitor(object):
 
 
     def show_modems(self):
-        for udi, path in self.modems.items():
-            print path
+        print("<validados>")
+        for udi, path_cset in self.modems.items():
+            print("= %s, %s" % path_cset)
+        print("</validados>")
 
 
 #    @Verbose(2)
     def add_device(self, udi):
-        if self.is_gsm(udi):
-            self.modems[udi] = self.get_path(udi)
+        cset = self.get_cset(udi)
+        if cset:
+            self.modems[udi] = self.get_path(udi), cset
+            print("+ %s, %s" % (self.modems[udi], cset))
             self.show_modems()
         return
 
@@ -63,6 +68,7 @@ class Monitor(object):
     def remove_device(self, udi):
         if self.is_serial(udi):
             if udi in self.modems:
+                print("- %s" % self.modems[udi])
                 del(self.modems[udi])
                 self.show_modems()
         return
@@ -72,25 +78,52 @@ class Monitor(object):
         return "_serial_" in udi
 
 
-    def get_all_gsm(self):
+    def get_all_modems(self):
         return self.hal_manager.FindDeviceByCapability("modem")
 
 
-    def is_gsm(self, udi):
+    def get_cset(self, udi):
         if self.is_serial(udi):
             device = self.get_device(udi)
             capabilities = device.GetPropertyString('info.capabilities')
 
+            debug("Device connected, capabilities: %s" % capabilities)
+
             if "modem" in capabilities:
-                if any(("GSM" in commands for commands in
-                    device.GetPropertyString('modem.command_sets'))):
-                    return True
+                moreinfo("Modem at %s" % device)
+                commands_sets = [c_set for c_set in
+                    device.GetPropertyString('modem.command_sets')]
+                for c_set in commands_sets:
+                    if "GSM" in c_set:
+                        return c_set
+                    elif "V.250" in c_set:
+                        return c_set
                 else:
-                    print([commands for commands in
-                    device.GetPropertyString('modem.command_sets')])
+                    for c_set in commands_sets:
+                        debug(c_set)
 
 
-def main():
+def get_options():
+    # Instance the parser and define the usage message
+    optparser = optparse.OptionParser(usage="""
+    %prog [-vq] [-t timeout] [host[:port]]...
+    """, version="%prog .1")
+
+    # Define the options and the actions of each one
+    optparser.add_option("-v", "--verbose", action="count", dest="verbose",
+        help="Increment verbosity")
+    optparser.add_option("-q", "--quiet", action="count", dest="quiet",
+        help="Decrement verbosity")
+
+    # Define the default options
+    optparser.set_defaults(verbose=0, quiet=0, timeout=1, threads=4,
+        all=False)
+
+    # Process the options
+    return optparser.parse_args()
+
+
+def main(options, args):
     monitor = Monitor()
     try:
         monitor.loop.run()
@@ -99,4 +132,15 @@ def main():
 
 
 if __name__ == "__main__":
-    exit(main())
+    # == Reading the options of the execution ==
+    options, args = get_options()
+
+    error = Verbose(options.verbose - options.quiet + 2, "E: ")
+    warning = Verbose(options.verbose - options.quiet + 1, "W: ")
+    info = Verbose(options.verbose - options.quiet + 0)
+    moreinfo = Verbose(options.verbose - options.quiet -1)
+    debug = Verbose(options.verbose - options.quiet - 2, "D: ")
+
+    debug("""Options: '%s', args: '%s'""" % (options, args))
+
+    exit(main(options, args))
