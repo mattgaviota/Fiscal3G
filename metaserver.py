@@ -1,8 +1,14 @@
 #!/usr/bin/env python
 #-*- coding: UTF-8 -*-
 
-import optparse
 from decoradores import Verbose
+from devicemonitor import Monitor
+import optparse
+
+class Metaserver(object)
+    def __init__(self, callback):
+        self.callback = callback
+
 
 def get_options():
     # Instance the parser and define the usage message
@@ -25,6 +31,8 @@ def get_options():
 
 def main(options, args):
     debug(options, args)
+
+    return 0
 
 
 if __name__ == "__main__":
