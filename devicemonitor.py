@@ -54,7 +54,6 @@ class Monitor(object):
         print("</validados>")
 
 
-#    @Verbose(2)
     def add_device(self, udi):
         cset = self.get_cset(udi)
         if cset:
@@ -64,11 +63,10 @@ class Monitor(object):
         return
 
 
-#    @Verbose(2)
     def remove_device(self, udi):
         if self.is_serial(udi):
             if udi in self.modems:
-                print("- %s" % self.modems[udi])
+                print("- %s, %s" % self.modems[udi])
                 del(self.modems[udi])
                 self.show_modems()
         return
@@ -90,7 +88,7 @@ class Monitor(object):
             debug("Device connected, capabilities: %s" % capabilities)
 
             if "modem" in capabilities:
-                moreinfo("Modem at %s" % device)
+                debug("Modem at %s" % device)
                 commands_sets = [c_set for c_set in
                     device.GetPropertyString('modem.command_sets')]
                 for c_set in commands_sets:
