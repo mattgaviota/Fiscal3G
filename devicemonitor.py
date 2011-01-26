@@ -9,7 +9,10 @@ import optparse
 
 
 class Monitor(object):
-    def __init__(self, callback=None):
+    def __init__(self, on_add_device=None, os_remove=None):
+        self.on_configure = on_add_device or lambda *args:args
+        self.on_remove = on_remove or lambda *args:args
+
         self.loop = DBusGMainLoop()
         self.system = dbus.SystemBus(mainloop=self.loop)
 
@@ -23,9 +26,10 @@ class Monitor(object):
         self.system.add_signal_receiver(self.add_device, 'DeviceAdded',
             'org.freedesktop.Hal.Manager', 'org.freedesktop.Hal',
             '/org/freedesktop/Hal/Manager')
-        self.system.add_signal_receiver(self.remove_device, 'DeviceRemoved',
-            'org.freedesktop.Hal.Manager', 'org.freedesktop.Hal',
-            '/org/freedesktop/Hal/Manager')
+        
+        self.system.add_signal_receiver(self.remove_device,
+            'DeviceRemoved', 'org.freedesktop.Hal.Manager',
+            'org.freedesktop.Hal', '/org/freedesktop/Hal/Manager')
 
 
         self.modems = {}
@@ -60,7 +64,7 @@ class Monitor(object):
             self.modems[udi] = self.get_path(udi), cset
             print("+ %s, %s" % (self.modems[udi], cset))
             self.show_modems()
-        return
+        return self.on_
 
 
     def remove_device(self, udi):

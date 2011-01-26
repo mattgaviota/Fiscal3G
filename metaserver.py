@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 #-*- coding: UTF-8 -*-
 
+import optparse
+from decoradores import Verbose
 
 def get_options():
     # Instance the parser and define the usage message
@@ -22,11 +24,7 @@ def get_options():
 
 
 def main(options, args):
-    monitor = Monitor()
-    try:
-        monitor.loop.run()
-    except KeyboardInterrupt:
-        return 0
+    debug(options, args)
 
 
 if __name__ == "__main__":
