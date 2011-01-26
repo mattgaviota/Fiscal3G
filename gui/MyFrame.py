@@ -20,8 +20,8 @@ class MyFrame(wx.Frame):
         # Tool Bar
         self.frame_1_toolbar = wx.ToolBar(self, -1, style=wx.TB_HORIZONTAL|wx.TB_TEXT|wx.TB_HORZ_LAYOUT|wx.TB_HORZ_TEXT)
         self.SetToolBar(self.frame_1_toolbar)
-        self.frame_1_toolbar.AddLabelTool(1, "SMS", wx.Bitmap("/home/matt/codigo/fiscal/GartoonRedux/32x32/actions/document-send.png", wx.BITMAP_TYPE_ANY), wx.NullBitmap, wx.ITEM_NORMAL, "", "")
-        self.frame_1_toolbar.AddLabelTool(2, "Agregar", wx.Bitmap("/home/matt/codigo/fiscal/GartoonRedux/32x32/actions/contact-new.png", wx.BITMAP_TYPE_ANY), wx.NullBitmap, wx.ITEM_NORMAL, "", "")
+        self.frame_1_toolbar.AddLabelTool(1, "SMS", wx.Bitmap("GartoonRedux/32x32/actions/document-send.png", wx.BITMAP_TYPE_ANY), wx.NullBitmap, wx.ITEM_NORMAL, "", "")
+        self.frame_1_toolbar.AddLabelTool(2, "Agregar", wx.Bitmap("GartoonRedux/32x32/actions/contact-new.png", wx.BITMAP_TYPE_ANY), wx.NullBitmap, wx.ITEM_NORMAL, "", "")
         self.frame_1_toolbar.AddSeparator()
         # Tool Bar end
         self.label_report = wx.StaticText(self, -1, "Reportes", style=wx.ALIGN_CENTRE)
