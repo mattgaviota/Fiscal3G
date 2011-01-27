@@ -9,9 +9,10 @@ import optparse
 
 
 class Monitor(object):
-    def __init__(self, on_add_device=None, os_remove=None):
-        self.on_configure = on_add_device or lambda *args:args
-        self.on_remove = on_remove or lambda *args:args
+    def __init__(self, on_add_device=None, on_remove_device=None):
+        dummy_func = lambda *args:args
+        self.on_add_device = on_add_device or dummy_func 
+        self.on_remove_device = on_remove_device or  dummy_func 
 
         self.loop = DBusGMainLoop()
         self.system = dbus.SystemBus(mainloop=self.loop)
@@ -64,7 +65,9 @@ class Monitor(object):
             self.modems[udi] = self.get_path(udi), cset
             print("+ %s, %s" % (self.modems[udi], cset))
             self.show_modems()
-        return self.on_
+            return self.on_add_device(udi, cset)
+        else:
+            return
 
 
     def remove_device(self, udi):
@@ -73,6 +76,7 @@ class Monitor(object):
                 print("- %s, %s" % self.modems[udi])
                 del(self.modems[udi])
                 self.show_modems()
+                return self.on_remove_device(udi)
         return
        
 
@@ -95,14 +99,19 @@ class Monitor(object):
                 debug("Modem at %s" % device)
                 commands_sets = [c_set for c_set in
                     device.GetPropertyString('modem.command_sets')]
+
                 for c_set in commands_sets:
                     if "GSM" in c_set:
-                        return c_set
+                        return "GSM"
                     elif "V.250" in c_set:
                         return c_set
                 else:
                     for c_set in commands_sets:
                         debug(c_set)
+                        return False
+            else:
+
+                return
 
 
 def get_options():
