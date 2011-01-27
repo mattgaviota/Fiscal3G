@@ -3,21 +3,23 @@
 
 from decoradores import Verbose
 from subprocess import Popen, PIPE
+import os
 import optparse
 
 GNOKII = "/usr/bin/gnokii"
-
 DEBUG = 2
 
 class Server(object):
-    def __init__(self, device_path, model, connection):
+    def __init__(self, parent, device_path, model, connection):
         """
         Crea la estructura de directorios
         Crea el fichero de configuración de gnokii para el dispositivo pasado
         Inicia el proceso de smsd
-            Puebla y vigila la cola interna
-            Notifica errores al metaserver
+            Pueblo y vigilo la cola interna
+            Notifico errores al metaserver
         """
+
+        self.parent = parent
 
         self.device_path = device_path
         self.model = model
@@ -25,8 +27,11 @@ class Server(object):
         self.config_file = "gnokii" + device_path.replace("/", ".")
         self.make_config_file()
 
-        self._description = {}
+        self.description = None
         debug(self.get_description())
+
+        self.pathbase = os.path.join(self.parent.pathbase,
+            self.description["IMEI"])
 
 
     def make_config_file(self):
@@ -36,16 +41,18 @@ class Server(object):
             file.write("model = %s\n" % self.model)
             file.write("port = %s\n" % self.device_path)
 
+
     def get_description(self):
-        if not self._description:
+        if not self.description:
             proc = Popen([GNOKII, "--config", self.config_file, "--identify"],
                 0, GNOKII, stdout=PIPE, stderr=PIPE)
-            self._description = {}
+            self.description = {}
             for line in proc.stdout.readlines():
                 key, value = line.split(":")
-                self._description[key.strip()] = value.strip()
+                self.description[key.strip()] = value.strip()
 
-        return self._description
+        return self.description
+
 
     def close(self):
         """
@@ -94,6 +101,7 @@ if __name__ == "__main__":
     debug("""Options: '%s', args: '%s'""" % (options, args))
 
     exit(main(options, args))
+
 else:
 
     error = Verbose(2 - DEBUG, "E: ")

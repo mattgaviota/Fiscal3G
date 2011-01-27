@@ -9,7 +9,7 @@ import optparse
 DEBUG = 2
 
 class Metaserver(object):
-    def __init__(self):
+    def __init__(self, pathbase="."):
         """
         Crea la estructura de directorios del metaservidor
         Inicia el monitor de dispositivos
@@ -18,21 +18,24 @@ class Metaserver(object):
             Desencadena eventos
         """
         self.servers = {}
+        self.pathbase = pathbase
+
         self.device_monitor = Monitor(self.configure_device,
             self.remove_device)
         self.device_monitor.loop.run()
 
-    def configure_device(self, path, protocol, model=None):
-        info("Metaserver:configured:%s, %s, %s" % (path, protocol, model))
-        server = Server(path, protocol, model)
-        self.servers[path] = server
+    def configure_device(self, device_path, protocol, model=None):
+        info("Metaserver:configured:%s, %s, %s" % (device_path, protocol,
+            model))
+        server = Server(self, device_path, protocol, model)
+        self.servers[device_path] = server
         return
 
-    def remove_device(self, path):
-        info("Metaserver:removed:%s" % path)
-        server = self.servers[path]
+    def remove_device(self, device_path):
+        info("Metaserver:removed:%s" % device_path)
+        server = self.servers[device_path]
         server.close()
-        del(self.servers[path])
+        del(self.servers[device_path])
         return
 
 
