@@ -1,0 +1,10 @@
+INSERT INTO `padrones`.`votos` (
+    `id_voto` ,
+    `cel` ,
+    `planilla` ,
+    `orden` ,
+    `hora` 
+)
+VALUES (
+    NULL , '154689321', '235', '1', '1207'
+);
