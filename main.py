@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 #-*- coding: UTF-8 -*-
 
-from metaserver import Metaserver
+from modules.metaserver import Metaserver
+from modules.decoradores import Verbose
 import optparse
-import time
 import os
 
-DEBUG = 0
+DEBUG = 2
 HOME = os.path.join(os.path.expanduser("~"), "Fiscal3G")
 
 

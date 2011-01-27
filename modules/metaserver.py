@@ -77,9 +77,8 @@ if __name__ == "__main__":
 
 else:
 
-    error = Verbose(options.verbose - options.quiet + 2, "E: ")
-    warning = Verbose(options.verbose - options.quiet + 1, "W: ")
-    info = Verbose(options.verbose - options.quiet + 0)
-    moreinfo = Verbose(options.verbose - options.quiet -1)
-    debug = Verbose(options.verbose - options.quiet - 2, "D: ")
-
+    error = Verbose(2 - DEBUG, "E: ")
+    warning = Verbose(1 - DEBUG, "W: ")
+    info = Verbose(0 - DEBUG)
+    moreinfo = Verbose(1 - DEBUG)
+    debug = Verbose(2 - DEBUG, "D: ")
