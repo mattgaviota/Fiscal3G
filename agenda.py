@@ -56,7 +56,8 @@ class Phonebook():
         self.aspects = {}
     
     def add_contact(self, contact):
-        return self.listofcontacts.append(contact)
+        self.listofcontacts.append(contact)
+        return True
     
     def get_list_of_contacts(self):
         return self.listofcontacts
@@ -217,7 +218,41 @@ class Phonebook():
                 pass
         return True
     
+    def load_aspects_from_csv(self):
+        file = open('./aspects.csv', 'rb')
+        aspects = csv.reader(file, delimiter= ',', quotechar= '|')
+        for row in aspects:
+            self.aspects[row[0]] = row[1]
+        print self.aspects
+        return True 
     
+    def load_contacts_from_csv(self):
+        file  = open('./contacts.csv', 'rb')
+        contacts = csv.reader(file, delimiter= ',', quotechar= '|')
+        for row in contacts:
+            name, number, aspects = tuple(row)
+            contact = Contact(name, number, eval(aspects))
+            self.add_contact(contact)
+        return True
+    
+    def write_contacts_to_csv(self):
+        file = open('./contacts2.csv', 'a')
+        contactwriter = csv.writer(file, delimiter= ',', quotechar= '|', 
+                        quoting= csv.QUOTE_ALL)
+        for contact in self.listofcontacts:
+            contactwriter.writerow(contact.get_data()[:-1])
+        file.close()
+        return True
+    
+    def write_aspects_to_csv(self):
+        file = open('./aspects2.csv', 'a')
+        contactwriter = csv.writer(file, delimiter= ',', quotechar= '|', 
+                        quoting= csv.QUOTE_ALL)
+        for key, value in self.aspects.iteritems():
+            contactwriter.writerow([key, value])
+        file.close()
+        return True
+
 #main modules
 
 def menu():
@@ -232,12 +267,12 @@ def menu():
         Selección                           Cargar 
         [10]  Seleccionar Contacto         [16] Aspectos
         [11]  Deseleccionar Contacto       [17] Contactos
-        [12]  Seleccionar Todos             
-        [13]  Seleccionar Ninguno
-        [14]  Seleccionar por Aspecto/s         
-        [15]  Deseleccionar por Aspecto/s
+        [12]  Seleccionar Todos            
+        [13]  Seleccionar Ninguno           Salvar
+        [14]  Seleccionar por Aspecto/s    [18] Aspectos     
+        [15]  Deseleccionar por Aspecto/s  [19] Contactos
 
-        [18]  SALIR
+        [20]  SALIR
         """
     return True
 
@@ -262,27 +297,22 @@ def select_by_aspect_in_phonebook(phonebook):
 def unselect_by_aspect_in_phonebook(phonebook):
     return phonebook.unselect_by_aspect()
 
-def load_contacts_from_csv(phonebook):
-    contacts = csv.reader(open('./contacts.csv', 'rb'), delimiter= ',',
-                            quotechar ='|')
-    for row in contacts:
-        name, number, aspects = tuple(row)
-        contact = Contact(name, number, eval(aspects))
-        phonebook.add_contact(contact)
-    return True
+def load_contacts_from_csv_to_phonebook(phonebook):
+    return phonebook.load_contacts_from_csv()
 
-def load_aspects_from_csv(phonebook):
-    aspects = csv.reader(open('./aspects.csv','rb'), delimiter= ',', 
-                        quotechar= '|')
-    for row in aspects:
-        phonebook.aspects[row[0]] = row[1]
-    print phonebook.aspects
-    return True
-        
+def load_aspects_from_csv_to_phonebook(phonebook):
+    return phonebook.load_aspects_from_csv()
+
+def write_aspects_to_phonebook_to_csv(phonebook):
+    return phonebook.write_aspects_to_csv()
+
+def write_contacts_to_phonebook_to_csv(phonebook):
+    return phonebook.write_contacts_to_csv()
+
 def add_contact_to_phonebook(phonebook):
     name = raw_input('Ingrese el nombre: ')
     number = raw_input('Ingrese el número: ')
-    aspects = phonebook.choose_aspects()
+    aspects = self.choose_aspects()
     contact = Contact(name, number, aspects)
     phonebook.add_contact(contact)
     return True
@@ -291,10 +321,10 @@ def show_contact_from_phonebook(phonebook):
     option = raw_input('ingrese número de contacto, de telefono o nombre: ')
     try:
         phonebook.show_contact(int(option))
-    except:
+    except (ValueError, IndexError):
         try:
             phonebook.show_contact(phonebook.search_contact(option))
-        except:
+        except (ValueError, IndexError):
             print 'No existe el contacto'
     return True
 
@@ -351,19 +381,21 @@ FUNCTION = {
             '13': unselect_all_contacts_from_phonebook,
             '14': select_by_aspect_in_phonebook,
             '15': unselect_by_aspect_in_phonebook,
-            '16': load_aspects_from_csv,
-            '17': load_contacts_from_csv,
-            '18': quit
+            '16': load_aspects_from_csv_to_phonebook,
+            '17': load_contacts_from_csv_to_phonebook,
+            '18': write_aspects_to_phonebook_to_csv,
+            '19': write_contacts_to_phonebook_to_csv,
+            '20': quit
             }
     
 def main():
     phonebook = Phonebook()
-    load_contacts_from_csv(phonebook)
-    load_aspects_from_csv(phonebook)
+    ##load_contacts_from_csv(phonebook)
+    ##load_aspects_from_csv(phonebook)
     os.system('clear')
     menu()
     option = raw_input('Ingrese opción: ')
-    while ((option) != '17'):
+    while ((option) != '20'):
         try:
             #os.system('clear')
             FUNCTION[option](phonebook)
