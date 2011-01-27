@@ -6,6 +6,8 @@ from devicemonitor import Monitor
 from server import Server
 import optparse
 
+DEBUG = 2
+
 class Metaserver(object):
     def __init__(self):
         """
@@ -59,13 +61,6 @@ def main(options, args):
 
     return 0
 
-error = Verbose(2, "E: ")
-warning = Verbose(1, "W: ")
-info = Verbose(0)
-moreinfo = Verbose(1)
-debug = Verbose(2, "D: ")
-
-
 if __name__ == "__main__":
     # == Reading the options of the execution ==
     options, args = get_options()
@@ -79,3 +74,12 @@ if __name__ == "__main__":
     debug("""Options: '%s', args: '%s'""" % (options, args))
 
     exit(main(options, args))
+
+else:
+
+    error = Verbose(options.verbose - options.quiet + 2, "E: ")
+    warning = Verbose(options.verbose - options.quiet + 1, "W: ")
+    info = Verbose(options.verbose - options.quiet + 0)
+    moreinfo = Verbose(options.verbose - options.quiet -1)
+    debug = Verbose(options.verbose - options.quiet - 2, "D: ")
+

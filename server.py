@@ -2,10 +2,15 @@
 #-*- coding: UTF-8 -*-
 
 from decoradores import Verbose
+from subprocess import Popen, PIPE
 import optparse
 
+GNOKII = "/usr/bin/gnokii"
+
+DEBUG = 2
+
 class Server(object):
-    def __init__(self, device_path, model, connection="serial"):
+    def __init__(self, device_path, model, connection):
         """
         Crea la estructura de directorios
         Crea el fichero de configuración de gnokii para el dispositivo pasado
@@ -13,18 +18,38 @@ class Server(object):
             Puebla y vigila la cola interna
             Notifica errores al metaserver
         """
-        self._imei = None
 
-    def get_ime(self):
-        return
+        self.device_path = device_path
+        self.model = model
+        self.connection = connection or "serial"
+        self.config_file = "gnokii" + device_path.replace("/", ".")
+        self.make_config_file()
 
-#        if self._imei is None:
-#            obtengo(IMEI
-#        return self._imei
+        self._description = {}
+        self.get_description()
+
+    def make_config_file(self):
+        with open(self.config_file, "w") as file:
+            file.write("[global]\n")
+            file.write("connection = %s\n" % self.connection)
+            file.write("model = %s\n" % self.model)
+            file.write("port = %s\n" % self.device_path)
+
+    def get_description(self):
+        if self._description is None:
+            proc = Popen([GNOKII, "--config", self.config_file, "--identify"],
+                0, GNOKII, stdout=PIPE, stderr=PIPE)
+            self._description = {}
+            for line in proc.stdout.readlines():
+                key, value = line.split(":")
+                debug("%s: %s" % (key, value))
+                description[key.strip()] = value.strip()
+
+        return self._description
 
     def close(self):
         """
-        Espera al servidor que finalice sus tareas
+        Espera a que el servidor finalice sus tareas
         Mata al servidor
         Limpia el entorno
         """
@@ -69,3 +94,10 @@ if __name__ == "__main__":
     debug("""Options: '%s', args: '%s'""" % (options, args))
 
     exit(main(options, args))
+else:
+
+    error = Verbose(2 - DEBUG, "E: ")
+    warning = Verbose(1 - DEBUG, "W: ")
+    info = Verbose(0 - DEBUG)
+    moreinfo = Verbose(1 - DEBUG)
+    debug = Verbose(2 - DEBUG, "D: ")
