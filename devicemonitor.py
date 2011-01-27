@@ -1,9 +1,9 @@
 #!/usr/bin/python
 
 from dbus.mainloop.glib import DBusGMainLoop
+from decoradores import Verbose
 import dbus
 import gobject
-from decoradores import Verbose
 import optparse
 
 
