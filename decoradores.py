@@ -20,6 +20,35 @@ from threading import Thread
 
 VERBOSE = 0
 
+def Auto_verbose(calling=1, returning=0):
+
+    def decorador(func):
+        @wraps(func)
+        def dfunc(*args, **kwargs):
+
+            if calling > 1:
+                debug("%s> %s(%s, %s)" % (" " * get_depth(), func.func_name,
+                    args, kwargs))
+            elif calling > 0:
+                debug("%s> %s" % (" " * get_depth(), func.func_name))
+
+            result = func(*args, **kwargs)
+
+            if returning > 2:
+                debug('%s< %s, file "%s", line %s' % (" " * get_depth(),
+                    func.func_name, relpath(inspect.getfile(func)),
+                    inspect.getsourcelines(func)[-1]))
+            elif returning > 1:
+                debug("%s< %s: %s" % (" " * get_depth(), func.func_name,
+                    result))
+            elif returning > 0:
+                debug('%s< %s' % (" " * get_depth(), func.func_name))
+
+            return result
+
+        return dfunc
+    return decorador
+
 class Verbose:
     def __init__(self, verbosity, prefix="", ident=True):
         self.verbosity = False if verbosity < 0 else True
@@ -454,35 +483,6 @@ def get_depth():
 def relpath(path):
     return os.path.abspath(path).replace(os.path.commonprefix(
         (os.path.abspath(os.path.curdir), os.path.abspath(path))), "")
-
-def Auto_verbose(calling=1, returning=0):
-
-    def decorador(func):
-        @wraps(func)
-        def dfunc(*args, **kwargs):
-
-            if calling > 1:
-                debug("%s> %s(%s, %s)" % (" " * get_depth(), func.func_name,
-                    args, kwargs))
-            elif calling > 0:
-                debug("%s> %s" % (" " * get_depth(), func.func_name))
-
-            result = func(*args, **kwargs)
-
-            if returning > 2:
-                debug('%s< %s, file "%s", line %s' % (" " * get_depth(),
-                    func.func_name, relpath(inspect.getfile(func)),
-                    inspect.getsourcelines(func)[-1]))
-            elif returning > 1:
-                debug("%s< %s: %s" % (" " * get_depth(), func.func_name,
-                    result))
-            elif returning > 0:
-                debug('%s< %s' % (" " * get_depth(), func.func_name))
-
-            return result
-
-        return dfunc
-    return decorador
 
 def Deprecated(level=1):
     """

@@ -3,16 +3,20 @@
 from dbus.mainloop.glib import DBusGMainLoop
 from debug import debug
 from decoradores import Verbose
+import csv
 import dbus
 import gobject
 import optparse
+import time
 
+DEBUG = 0
 
 class Monitor(object):
-    def __init__(self, on_add_device=None, on_remove_device=None):
+    def __init__(self, on_added_device_device=None,
+            on_removed_device_device=None):
         dummy_func = lambda *args:args
-        self.on_add_device = on_add_device or dummy_func 
-        self.on_remove_device = on_remove_device or  dummy_func 
+        self.on_added_device_device = on_added_device_device or dummy_func 
+        self.on_removed_device_device = on_removed_device_device or  dummy_func 
 
         self.loop = DBusGMainLoop()
         self.system = dbus.SystemBus(mainloop=self.loop)
@@ -21,7 +25,6 @@ class Monitor(object):
             '/org/freedesktop/Hal/Manager')
         self.hal_manager = dbus.Interface(hal_manager_proxy,
             'org.freedesktop.Hal.Manager')
-
 
         # Connects the wrappers
         self.system.add_signal_receiver(self.add_device, 'DeviceAdded',
@@ -32,6 +35,8 @@ class Monitor(object):
             'DeviceRemoved', 'org.freedesktop.Hal.Manager',
             'org.freedesktop.Hal', '/org/freedesktop/Hal/Manager')
 
+        reader = csv.reader(open("models.csv"))
+        self.models = dict(reader)
 
         self.modems = {}
         for modem in self.get_all_modems():
@@ -59,21 +64,26 @@ class Monitor(object):
 
     def add_device(self, udi):
         cset = self.get_cset(udi)
+
         if cset:
-            self.modems[udi] = self.get_path(udi), cset
-            debug("+ %s, %s" % (self.modems[udi], cset))
-            return self.on_add_device(udi, cset)
-        else:
-            return
+            model = self.models[cset]
+            time.sleep(.5) #HACK: sleep until the modem to wake up.
+
+            if cset:
+                self.modems[udi] = self.get_path(udi), model
+                debug("+ %s, %s" % self.modems[udi])
+                return self.on_added_device_device(*self.modems[udi])
+            else:
+                return
 
 
     def remove_device(self, udi):
-        if self.is_serial(udi):
-            if udi in self.modems:
-                debug("- %s, %s" % self.modems[udi])
-                del(self.modems[udi])
-                return self.on_remove_device(udi)
-        return
+
+        if udi in self.modems:
+            debug("- %s, %s" % self.modems[udi])
+            path = self.modems[udi][0]
+            del(self.modems[udi])
+            return self.on_removed_device_device(path)
        
 
     def is_serial(self, udi):
@@ -89,10 +99,7 @@ class Monitor(object):
             device = self.get_device(udi)
             capabilities = device.GetPropertyString('info.capabilities')
 
-            debug("Device connected, capabilities: %s" % capabilities)
-
             if "modem" in capabilities:
-                debug("Modem at %s" % device)
                 commands_sets = [c_set for c_set in
                     device.GetPropertyString('modem.command_sets')]
 
@@ -106,7 +113,6 @@ class Monitor(object):
                         debug(c_set)
                         return False
             else:
-
                 return
 
 
@@ -150,3 +156,11 @@ if __name__ == "__main__":
     debug("""Options: '%s', args: '%s'""" % (options, args))
 
     exit(main(options, args))
+
+else:
+
+    error = Verbose(2 - DEBUG, "E: ")
+    warning = Verbose(1, "W: ")
+    info = Verbose(0)
+    moreinfo = Verbose(1)
+    debug = Verbose(2, "D: ")
