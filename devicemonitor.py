@@ -1,9 +1,9 @@
 #!/usr/bin/python
 
 from dbus.mainloop.glib import DBusGMainLoop
-from decoradores import Verbose
 import dbus
 import gobject
+from decoradores import Verbose
 import optparse
 
 
@@ -63,7 +63,6 @@ class Monitor(object):
         if cset:
             self.modems[udi] = self.get_path(udi), cset
             print("+ %s, %s" % (self.modems[udi], cset))
-            moreinfo(show_modems())
             return self.on_add_device(udi, cset)
         else:
             return
