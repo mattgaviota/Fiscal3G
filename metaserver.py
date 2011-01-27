@@ -11,23 +11,26 @@ class Metaserver(object):
         """
         Crea la estructura de directorios del metaservidor
         Inicia el monitor de dispositivos
-        Maneja los eventos de conexion/desconexion
-            Pide a farm que instancie y eliminea servidores
-        Desencadena eventos
+            Maneja los eventos de conexion/desconexion
+                Pide a farm que instancie y eliminea servidores
+            Desencadena eventos
         """
+        self.servers = {}
         self.device_monitor = Monitor(self.configure_device,
             self.remove_device)
         self.device_monitor.loop.run()
-        self.servers = {}
 
     def configure_device(self, path, protocol, model=None):
         info("Metaserver:configured:%s, %s, %s" % (path, protocol, model))
-        self.servers.append(server.Server(path, protocol, model))
+        server = Server(path, protocol, model)
+        self.servers[path] = server
         return
 
     def remove_device(self, path):
         info("Metaserver:removed:%s" % path)
-        self
+        server = self.servers[path]
+        server.close()
+        del(self.servers[path])
         return
 
 

@@ -10,12 +10,25 @@ class Server(object):
         Crea la estructura de directorios
         Crea el fichero de configuración de gnokii para el dispositivo pasado
         Inicia el proceso de smsd
-        Puebla y vigila la cola interna
-        Notifica errores al metaserver
+            Puebla y vigila la cola interna
+            Notifica errores al metaserver
         """
+        self._imei = None
+
+    def get_ime(self):
+        return
+
+#        if self._imei is None:
+#            obtengo(IMEI
+#        return self._imei
 
     def close(self):
-        pass
+        """
+        Espera al servidor que finalice sus tareas
+        Mata al servidor
+        Limpia el entorno
+        """
+        return
 
 
 def get_options():

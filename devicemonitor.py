@@ -9,10 +9,10 @@ import optparse
 
 
 class Monitor(object):
-    def __init__(self, on_add_device=None, on_remove_device=None):
+    def __init__(self, on_added_device_device=None, on_removed_device_device=None):
         dummy_func = lambda *args:args
-        self.on_add_device = on_add_device or dummy_func 
-        self.on_remove_device = on_remove_device or  dummy_func 
+        self.on_added_device_device = on_added_device_device or dummy_func 
+        self.on_removed_device_device = on_removed_device_device or  dummy_func 
 
         self.loop = DBusGMainLoop()
         self.system = dbus.SystemBus(mainloop=self.loop)
@@ -62,8 +62,7 @@ class Monitor(object):
 
         if cset:
             self.modems[udi] = self.get_path(udi), cset
-            debug("+ %s, %s" % self.modems[udi])
-            return self.on_add_device(udi, cset)
+            return self.on_added_device_device(udi, self.modems[udi])
         else:
             return
 
@@ -73,7 +72,7 @@ class Monitor(object):
         if udi in self.modems:
             debug("- %s, %s" % self.modems[udi])
             del(self.modems[udi])
-            return self.on_remove_device(udi)
+            return self.on_removed_device_device(udi)
        
 
     def is_serial(self, udi):
