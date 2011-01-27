@@ -1,9 +1,10 @@
 #!/usr/bin/python
 
 from dbus.mainloop.glib import DBusGMainLoop
+from debug import debug
+from decoradores import Verbose
 import dbus
 import gobject
-from decoradores import Verbose
 import optparse
 
 
@@ -52,17 +53,15 @@ class Monitor(object):
 
 
     def show_modems(self):
-        print("<validados>")
         for udi, path_cset in self.modems.items():
             print("= %s, %s" % path_cset)
-        print("</validados>")
 
 
     def add_device(self, udi):
         cset = self.get_cset(udi)
         if cset:
             self.modems[udi] = self.get_path(udi), cset
-            print("+ %s, %s" % (self.modems[udi], cset))
+            debug("+ %s, %s" % (self.modems[udi], cset))
             return self.on_add_device(udi, cset)
         else:
             return
@@ -71,9 +70,8 @@ class Monitor(object):
     def remove_device(self, udi):
         if self.is_serial(udi):
             if udi in self.modems:
-                print("- %s, %s" % self.modems[udi])
+                debug("- %s, %s" % self.modems[udi])
                 del(self.modems[udi])
-                self.show_modems()
                 return self.on_remove_device(udi)
         return
        
