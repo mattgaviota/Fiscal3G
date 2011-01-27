@@ -2,33 +2,20 @@
 #-*- coding: UTF-8 -*-
 
 from decoradores import Verbose
-from devicemonitor import Monitor
-from server import Server
 import optparse
 
-class Metaserver(object):
-    def __init__(self):
+class Server(object):
+    def __init__(self, device_path, model, connection="serial"):
         """
-        Crea la estructura de directorios del metaservidor
-        Inicia el monitor de dispositivos
-        Maneja los eventos de conexion/desconexion
-            Pide a farm que instancie y eliminea servidores
-        Desencadena eventos
+        Crea la estructura de directorios
+        Crea el fichero de configuración de gnokii para el dispositivo pasado
+        Inicia el proceso de smsd
+        Puebla y vigila la cola interna
+        Notifica errores al metaserver
         """
-        self.device_monitor = Monitor(self.configure_device,
-            self.remove_device)
-        self.device_monitor.loop.run()
-        self.servers = {}
 
-    def configure_device(self, path, protocol, model=None):
-        info("Metaserver:configured:%s, %s, %s" % (path, protocol, model))
-        self.servers.append(server.Server(path, protocol, model))
-        return
-
-    def remove_device(self, path):
-        info("Metaserver:removed:%s" % path)
-        self
-        return
+    def close(self):
+        pass
 
 
 def get_options():
@@ -52,15 +39,8 @@ def get_options():
 
 def main(options, args):
     debug(options, args)
-    metaserver = Metaserver()
 
     return 0
-
-error = Verbose(2, "E: ")
-warning = Verbose(1, "W: ")
-info = Verbose(0)
-moreinfo = Verbose(1)
-debug = Verbose(2, "D: ")
 
 
 if __name__ == "__main__":

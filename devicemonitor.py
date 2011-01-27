@@ -59,21 +59,21 @@ class Monitor(object):
 
     def add_device(self, udi):
         cset = self.get_cset(udi)
+
         if cset:
             self.modems[udi] = self.get_path(udi), cset
-            debug("+ %s, %s" % (self.modems[udi], cset))
+            debug("+ %s, %s" % self.modems[udi])
             return self.on_add_device(udi, cset)
         else:
             return
 
 
     def remove_device(self, udi):
-        if self.is_serial(udi):
-            if udi in self.modems:
-                debug("- %s, %s" % self.modems[udi])
-                del(self.modems[udi])
-                return self.on_remove_device(udi)
-        return
+
+        if udi in self.modems:
+            debug("- %s, %s" % self.modems[udi])
+            del(self.modems[udi])
+            return self.on_remove_device(udi)
        
 
     def is_serial(self, udi):
@@ -88,8 +88,6 @@ class Monitor(object):
         if self.is_serial(udi):
             device = self.get_device(udi)
             capabilities = device.GetPropertyString('info.capabilities')
-
-            debug("Device connected, capabilities: %s" % capabilities)
 
             if "modem" in capabilities:
                 debug("Modem at %s" % device)
