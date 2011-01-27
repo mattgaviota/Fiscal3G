@@ -6,8 +6,15 @@ from devicemonitor import Monitor
 import optparse
 
 class Metaserver(object)
-    def __init__(self, callback):
-        self.callback = callback
+    def __init__(self):
+        self.device_monitor = Monitor(self.configure_device,
+            self.remove_device)
+
+    def configure_device(self, path, protocol, model=None):
+        return
+
+    def remove_device(self, path):
+        return
 
 
 def get_options():
