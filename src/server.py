@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #-*- coding: UTF-8 -*-
 
-from decoradores import Verbose
+from decoradores import Verbose, Retry
 from subprocess import Popen, PIPE
 import os
 import optparse
@@ -23,6 +23,9 @@ class Server(object):
         self.parent = parent
 
         self.device_path = device_path
+        device_name = self.device_path.lstrip("/dev/")
+        self.config_section = "%s-%s" % (device_name, model)
+
         self.model = model
         self.connection = connection or "serial"
         self.config_file = "gnokii" + device_path.replace("/", ".")
@@ -33,6 +36,33 @@ class Server(object):
 
         self.configure_dirs()
     
+    @Retry(10, pause=1)
+    def smsd(self):
+        """
+        WTF, smsd doesnt accept the --config option, we must improvise
+        A global config file has a section by /dev/*-model device. e.g.:
+
+        [phone_ttyUSB0-AT-HW]
+        model = AT-HW
+
+        We run smsd with the -t "devicename-model".
+        """
+
+        #TODO: Report this ^^^ bug
+        environ = os.environ
+        environ["PWD"] = self.pathbase
+        proc = Popen([SMSD,
+            "--inbox", "SM",
+            "--logfile", self.log_path,
+            "--phone", self.config_section,
+            "-c", self.outbox_path, 
+            "-m", "file",
+            "-u", "bin/handler.sh",
+            ], 0, GNOKII, stdout=PIPE, stderr=PIPE, env=environ)
+        error = proc.wait()
+        debug(error)
+        return
+
 
     def configure_dirs(self):
         self.pathbase = os.path.join(self.parent.pathbase,
@@ -63,17 +93,28 @@ class Server(object):
             file.write("model = %s\n" % self.model)
             file.write("port = %s\n" % self.device_path)
 
+    
+    @Retry(10, pause=1)
+    def gnokii(self, *args):
+        proc = Popen([GNOKII, "--config", self.config_file] + list(args),
+            0, GNOKII, stdout=PIPE, stderr=PIPE)
+        error = proc.wait()
 
+        if not error:
+            return proc
+
+
+    @Retry(10, pause=1)
     def get_description(self):
         if not self.description:
-            proc = Popen([GNOKII, "--config", self.config_file, "--identify"],
-                0, GNOKII, stdout=PIPE, stderr=PIPE)
+            proc = self.gnokii("--identify")
             self.description = {}
             for line in proc.stdout.readlines():
                 key, value = line.split(":")
                 self.description[key.strip()] = value.strip()
 
-        return self.description
+        if self.description["IMEI"].isdigit():
+            return self.description
 
 
     def close(self):
