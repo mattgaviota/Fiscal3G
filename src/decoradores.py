@@ -434,18 +434,25 @@ class Retry:
 
     def __call__(self, func):
         def call(*args, **kwargs):
-            for attempt in xrange(self.attempts):
-                result = func(*args, **kwargs)
+            if self.attempts < 0:
+                result = None
+                while result is None:
+                    result = func(*args, **kwargs)
 
-                if result != self.retry_on:
-                    return result
-
-                if VERBOSE:
-                    debug(" Retry %d: %s(*%s)" % (attempt, func.func_name,
-                        args))
-                time.sleep(self.pause)
             else:
-                debug(" Failed %s(*%s, **%s)" % (func.func_name, args, kwargs))
+                for attempt in xrange(self.attempts):
+                    result = func(*args, **kwargs)
+
+                    if result != self.retry_on:
+                        return result
+
+                    if VERBOSE:
+                        debug(" Retry %d: %s(*%s)" % (attempt, func.func_name,
+                            args))
+                    time.sleep(self.pause)
+                else:
+                    debug(" Failed %s(*%s, **%s)" % (func.func_name, args,
+                        kwargs))
 
             return result
         return call

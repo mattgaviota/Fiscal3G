@@ -5,6 +5,7 @@ from decoradores import Verbose
 from devicemonitor import Monitor
 from server import Server
 import optparse
+import os
 
 DEBUG = 2
 
@@ -18,7 +19,7 @@ class Metaserver(object):
             Desencadena eventos
         """
         self.servers = {}
-        self.pathbase = pathbase
+        self.pathbase = os.path.abspath(pathbase)
 
         self.device_monitor = Monitor(self.configure_device,
             self.remove_device)
