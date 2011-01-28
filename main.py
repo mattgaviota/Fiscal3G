@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 #-*- coding: UTF-8 -*-
 
-from modules.metaserver import Metaserver
-from modules.decoradores import Verbose
+from src.metaserver import Metaserver
+from src.decoradores import Verbose
 import optparse
 import os
 

@@ -26,7 +26,8 @@ class Server(object):
         self.make_config_file()
 
         self._description = {}
-        self.get_description()
+        debug(self.get_description())
+
 
     def make_config_file(self):
         with open(self.config_file, "w") as file:
@@ -36,14 +37,13 @@ class Server(object):
             file.write("port = %s\n" % self.device_path)
 
     def get_description(self):
-        if self._description is None:
+        if not self._description:
             proc = Popen([GNOKII, "--config", self.config_file, "--identify"],
                 0, GNOKII, stdout=PIPE, stderr=PIPE)
             self._description = {}
             for line in proc.stdout.readlines():
                 key, value = line.split(":")
-                debug("%s: %s" % (key, value))
-                description[key.strip()] = value.strip()
+                self._description[key.strip()] = value.strip()
 
         return self._description
 
