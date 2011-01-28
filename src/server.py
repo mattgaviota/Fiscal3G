@@ -1,14 +1,17 @@
 #!/usr/bin/env python
 #-*- coding: UTF-8 -*-
 
-from decoradores import Verbose, Retry
-from subprocess import Popen, PIPE
-import os
+from decoradores import Verbose, Retry, Auto_verbose, Async, debug, nothreadsafe
+from pprint import pprint
+from subprocess import Popen, PIPE, signal
 import optparse
+import os
+import time
 
 GNOKII = "/usr/bin/gnokii" #FIXME: Hardcoded
-SMSD = "/usr/bin/smsd" #FIXME: Hardcoded
+SMSD = "/usr/sbin/smsd" #FIXME: Hardcoded
 DEBUG = 2
+
 
 class Server(object):
     def __init__(self, parent, device_path, model, connection):
@@ -20,6 +23,7 @@ class Server(object):
             Notifico errores al metaserver
         """
 
+        self._smsd = None
         self.parent = parent
 
         self.device_path = device_path
@@ -35,38 +39,79 @@ class Server(object):
         debug(self.get_description())
 
         self.configure_dirs()
+
+        self._keep_running = False
+        self.monitor(self)
     
-    @Retry(10, pause=1)
-    def smsd(self):
+
+    def send_sms(self, dest_number, content):
+        sms_path = os.path.join(self.outbox,
+            "%s.%s" % (
+                self.description["IMEI"],
+                time.strftime("%Y-%m-%d %T")))
+        with open(sms_path, "w") as file:
+            file.write(content)
+        return
+
+
+    @Auto_verbose(1, 2)
+    def start_smsd(self):
+        self._keep_running = True
+
+
+    @Auto_verbose(1, 2)
+    def stop_smsd(self):
+        self._keep_running = False
+    
+
+    @Async
+    @nothreadsafe
+    def monitor(self):
         """
-        WTF, smsd doesnt accept the --config option, we must improvise
+        WTF, smsd doesnt accept the --config option, we must improvise.
         A global config file has a section by /dev/*-model device. e.g.:
 
-        [phone_ttyUSB0-AT-HW]
-        model = AT-HW
+            [phone_ttyUSB0-AT-HW]
+            model = AT-HW
 
         We run smsd with the -t "devicename-model".
         """
-
         #TODO: Report this ^^^ bug
-        environ = os.environ
-        environ["PWD"] = self.pathbase
-        proc = Popen([SMSD,
-            "--inbox", "SM",
-            "--logfile", self.log_path,
-            "--phone", self.config_section,
-            "-c", self.outbox_path, 
-            "-m", "file",
-            "-u", "bin/handler.sh",
-            ], 0, GNOKII, stdout=PIPE, stderr=PIPE, env=environ)
-        error = proc.wait()
-        debug(error)
-        return
+
+        while True:
+            if self._keep_running and not self.is_alive():
+                environ = {}
+                environ["PWD"] = self.pathbase
+
+                pprint(environ)
+                command = ["smsd", "--logfile", self.log_path,
+                    "--phone", self.config_section, "-c", self.outbox_path, 
+                    "-m", "file", "-u",
+                    os.path.join(self.parent.pathbase, "bin/handler.sh")]
+                debug(" ".join(command))
+
+                stdout = open(os.path.join(self.pathbase, "stdout"), "w")
+                stderr = open(os.path.join(self.pathbase, "stderr"), "w")
+                self._smsd = Popen(command, stdout=stdout,
+                    stderr=stderr, shell=True)
+
+                self._smsd.wait()
+
+            time.sleep(1)
+
+
+    def is_alive(self):
+        if self._smsd and self._smsd.returncode is None:
+            return True
+        else:
+            return False
 
 
     def configure_dirs(self):
         self.pathbase = os.path.join(self.parent.pathbase,
             self.description["IMEI"])
+
+        self.log_path = os.path.join(self.pathbase, "logfile")
 
         if not os.path.isdir(self.pathbase):
             os.mkdir(self.pathbase)
@@ -123,7 +168,19 @@ class Server(object):
         Mata al servidor
         Limpia el entorno
         """
-        return
+
+        self.wait()
+        self._smsd.send_signal(SIGTERM)
+
+        for pause in xrange(15):
+            if self._smsd.returncode:
+                break
+            else:
+                time.sleep(1)
+
+        self._smsd.kill()
+
+        return self.is_alive()
 
 
 def get_options():

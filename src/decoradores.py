@@ -49,6 +49,7 @@ def Auto_verbose(calling=1, returning=0):
         return dfunc
     return decorador
 
+
 class Verbose:
     def __init__(self, verbosity, prefix="", ident=True):
         self.verbosity = False if verbosity < 0 else True
@@ -82,7 +83,7 @@ class Verbose:
 
             # minn =< depth < maxn
             middle = (minn + maxn) / 2
-          
+
             while minn < middle:
                 if exist_frame(middle):
                     minn = middle
@@ -90,14 +91,13 @@ class Verbose:
                     maxn = middle
 
                 middle = (minn + maxn) / 2
-          
+
             return max(minn - 3, 0) #4 == len(main, Verbose, get_depth)
 
 error = Verbose(VERBOSE + 2, "E: ")
 warning = Verbose(VERBOSE + 1, "W: ")
 info = Verbose(VERBOSE + 0)
 moreinfo = Verbose(VERBOSE -1)
-debug = Verbose(VERBOSE - 2, "D: ")
 
 
 class Sheep(Thread):
@@ -107,41 +107,58 @@ class Sheep(Thread):
         self.results = results
         Thread.__init__(self)
         self.daemon = daemon
+        self.running = False
+
 
     def run(self):
-        while not self.jobs.empty():
+        self.running = True
+        while self.running and not self.jobs.empty():
             self.results.put(self.worker(*self.jobs.get()))
             self.jobs.task_done()
+        self.running = False
+
+
+    def kill(self):
+        self._running = False
 
 
 class Farm:
-    def __init__(self, worker, threads=4, daemon=False, metaworker=False):
+    def __init__(self, worker=None, threads=0, daemon=False):
         self._jobs = Queue()
         self._results = Queue()
         self._worker = worker
-        self._metaworker = metaworker
         self._daemon = daemon
 
-        self._sheeps = [self.put_sheep() for thread in xrange(threads)]
+        self._sheeps = []
+        for thread in xrange(threads):
+            self.put_sheep(self.get_sheep(worker))
 
-    def put_sheep(self, *args, **kwargs):
-        if self._metaworker:
-            worker = self._worker(*args, **kwargs)
-        else:
-            assert not args
-            assert not kwargs
-            worker = self._worker
 
+    def get_sheep(self, worker):
         return Sheep(worker, self._jobs, self._results, self._daemon)
+
+
+    def del_sheep(self, sheep):
+        assert type(sheep) is Sheep
+        return self._sheeps.remove(sheep)
+
+
+    def put_sheep(self, sheep):
+        assert type(sheep) is Sheep
+        return self._sheeps.append(sheep)
+
 
     def enqueue(self, job):
         self._jobs.put(job)
 
+
     def is_empty(self):
         return self._jobs.unfinished_tasks == 0
 
+
     def join(self):
         return self._jobs.join()
+
 
     def get_result(self, timeout=0):
         if self.is_empty():
@@ -149,8 +166,10 @@ class Farm:
         else:
             return self._results.get(timeout=timeout)
 
+
     def wait_value(self, value):
         return self.wait_eval(lambda x:x == value)
+
 
     def wait_eval(self, evaluer=lambda x: x):
         found = False
@@ -164,7 +183,8 @@ class Farm:
 
         return found
 
-    def start(self):
+
+    def start_all(self):
         for sheep in self._sheeps:
             sheep.start()
 
