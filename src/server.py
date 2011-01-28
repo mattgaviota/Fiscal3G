@@ -6,7 +6,8 @@ from subprocess import Popen, PIPE
 import os
 import optparse
 
-GNOKII = "/usr/bin/gnokii"
+GNOKII = "/usr/bin/gnokii" #FIXME: Hardcoded
+SMSD = "/usr/bin/smsd" #FIXME: Hardcoded
 DEBUG = 2
 
 class Server(object):
@@ -32,6 +33,11 @@ class Server(object):
 
         self.pathbase = os.path.join(self.parent.pathbase,
             self.description["IMEI"])
+
+        os.mkdir(self.pathbase)
+        os.rename(self.config_file, os.path.join(self.pathbase,
+            self.config_file))
+        os.mkdir(os.path.join(os.
 
 
     def make_config_file(self):
