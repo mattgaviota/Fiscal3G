@@ -31,13 +31,29 @@ class Server(object):
         self.description = None
         debug(self.get_description())
 
+        self.configure_dirs()
+    
+
+    def configure_dirs(self):
         self.pathbase = os.path.join(self.parent.pathbase,
             self.description["IMEI"])
 
-        os.mkdir(self.pathbase)
-        os.rename(self.config_file, os.path.join(self.pathbase,
-            self.config_file))
-        os.mkdir(os.path.join(os.
+        if not os.path.isdir(self.pathbase):
+            os.mkdir(self.pathbase)
+
+        if (os.path.commonprefix((self.config_file, self.pathbase)) !=
+            self.pathbase):
+            new_config_file = os.path.join(self.pathbase, self.config_file)
+            os.rename(self.config_file, new_config_file)
+            self.config_file = new_config_file
+
+        self.inbox_path = os.path.join(self.pathbase, "inbox")
+        if not os.path.isdir(self.inbox_path):
+            os.mkdir(self.inbox_path)
+
+        self.outbox_path = os.path.join(self.pathbase, "outbox")
+        if not os.path.isdir(self.outbox_path):
+            os.mkdir(self.outbox_path)
 
 
     def make_config_file(self):
