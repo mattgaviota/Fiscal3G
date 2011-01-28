@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #-*- coding: UTF-8 -*-
 
-from decoradores import Verbose
+from decoradores import Verbose, Retry
 from subprocess import Popen, PIPE
 import os
 import optparse
@@ -63,11 +63,20 @@ class Server(object):
             file.write("model = %s\n" % self.model)
             file.write("port = %s\n" % self.device_path)
 
+    
+    @Retry(5)
+    def execute(self, *args):
+        proc = Popen([GNOKII, "--config", self.config_file] + list(args),
+            0, GNOKII, stdout=PIPE, stderr=PIPE)
+        error = proc.wait()
+
+        if not error:
+            return proc
+
 
     def get_description(self):
         if not self.description:
-            proc = Popen([GNOKII, "--config", self.config_file, "--identify"],
-                0, GNOKII, stdout=PIPE, stderr=PIPE)
+            proc = self.execute("--identify")
             self.description = {}
             for line in proc.stdout.readlines():
                 key, value = line.split(":")
