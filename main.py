@@ -3,6 +3,7 @@
 
 from src.metaserver import Metaserver
 from src.decoradores import Verbose
+from ConfigParser import SafeConfigParser
 import optparse
 import os
 
@@ -29,8 +30,14 @@ def get_options():
     return optparser.parse_args()
 
 
+def read_config_file():
+    config = SafeConfigParser()
+    config.read(os.path.expanduser('~/Fiscal3G/config.ini'))
+    return config
+
 def main(options, args):
-    Metaserver()
+    #Metaserver()
+    
     return 0
 
 
