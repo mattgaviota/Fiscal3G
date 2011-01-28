@@ -31,13 +31,12 @@ def get_options():
 
 
 def read_config_file():
-    config = SafeConfigParser()
-    config.read(os.path.expanduser('~/Fiscal3G/config.ini'))
+    reader = SafeConfigParser()
+    config = reader.read(os.path.expanduser('~/Fiscal3G/config.ini'))
     return config
 
 def main(options, args):
     #Metaserver()
-    
     return 0
 
 
