@@ -14,7 +14,7 @@ class Reports():
     
     def impact_on_db(self, report):
         try:
-            db.insert_to_db(self.parse.get_values_for_query() + report)
+            self.db.insert_to_db(self.parse.get_values_for_query() + report)
         except:
             print 'Cant insert to MySQL database'
         

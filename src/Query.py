@@ -16,5 +16,4 @@ class Query():
         
     def insert_to_db(self, values):
         self.cursor.execute(self.sqlsentence % values)
-        self.cursor.close()
     
