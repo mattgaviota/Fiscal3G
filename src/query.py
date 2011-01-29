@@ -55,8 +55,6 @@ class Query():
         campos = [campo for campo in normalbody.split(";")
             if campo]
 
-        print("### " + "".join(campos))
-
         if len(campos) > 1:
             planilla = campos[0]
             ordenes = campos[1:]
@@ -77,7 +75,7 @@ def main():
             db.insert_to_db(report)
     except:
         print("    XX Está la base de datos online?")
-        shutil.move(sys.argv[1], "to_db")
+        shutil.move(sys.argv[1], "to_db/%s" % sys.argv[1].split("/")[-1])
 
 
 if __name__ == '__main__':
