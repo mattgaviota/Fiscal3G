@@ -47,7 +47,7 @@ def main():
 
         os.remove(INBOX)
 
-        tmp_files = []
+        temp_files = []
         messages = (message for message in inbox.split("\n\nFrom") if message)
         for message in messages:
             lines = message.splitlines()
@@ -67,15 +67,20 @@ def main():
                     body,
                     ))
 
-            print("%s %s %s" % (h_time, h_from, body))
+            print("  >> %s %s %s" % (h_time, h_from, body))
 
             temp_fd, temp_name = mkstemp(".gnokii")
             with os.fdopen(temp_fd, "w") as file:
                 file.write(content)
 
-            tmp_files.append(temp_name)
+            temp_files.append(temp_name)
 
         print("Impactando en la base de datos:")
+        for file in temp_files:
+            execute("python src/query.py %s" % file)
+
+    else:
+        print("No hay novedades de momento...")
 
 
 if __name__ == "__main__":

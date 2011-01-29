@@ -17,8 +17,8 @@ class Monitor(object):
     def __init__(self, on_added_device_device=None,
             on_removed_device_device=None):
         dummy_func = lambda *args:args
-        self.on_added_device_device = on_added_device_device or dummy_func 
-        self.on_removed_device_device = on_removed_device_device or  dummy_func 
+        self.on_added_device_device = on_added_device_device or dummy_func
+        self.on_removed_device_device = on_removed_device_device or  dummy_func
 
         self.loop = DBusGMainLoop()
         self.system = dbus.SystemBus(mainloop=self.loop)
@@ -32,7 +32,7 @@ class Monitor(object):
         self.system.add_signal_receiver(self.add_device, 'DeviceAdded',
             'org.freedesktop.Hal.Manager', 'org.freedesktop.Hal',
             '/org/freedesktop/Hal/Manager')
-        
+
         self.system.add_signal_receiver(self.remove_device,
             'DeviceRemoved', 'org.freedesktop.Hal.Manager',
             'org.freedesktop.Hal', '/org/freedesktop/Hal/Manager')
@@ -86,7 +86,7 @@ class Monitor(object):
             path = self.modems[udi][0]
             del(self.modems[udi])
             return self.on_removed_device_device(path)
-       
+
 
     def is_serial(self, udi):
         return "_serial_" in udi
@@ -167,7 +167,7 @@ def remove_config_file(path):
         os.remove(get_conf_name(path))
     except OSError:
         return
-    
+
 
 def main(options, args):
     shutil.rmtree("configs")
