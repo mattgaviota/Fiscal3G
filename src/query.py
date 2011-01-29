@@ -1,10 +1,13 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
 
+from os import path
 from parser import Parser
 import MySQLdb
 import shutil
 import sys
+
+REPORT_ARCHIVE = path.abspath("report_archive.mbox")
 
 class Query():
 
@@ -56,8 +59,6 @@ class Query():
             if campo]
 
         print("### " + "".join(campos))
-        print campos
-        print self.values
         
         if len(campos) > 1:
             planilla = campos[0]
@@ -74,12 +75,17 @@ def main():
     db.get_data_from_config()
     db.format_data_to_insert()
     print db.get_reports()
+
+    with open(REPORT_ARCHIVE, "a") as file:
+        file.write("%s\n")
+
     try:
         db.connect_to_db(db.get_serverdata())
     except:
         print("    XX Está la base de datos online?")
-        shutil.move(sys.argv[1], "to_db")
+        shutil.move(sys.argv[1], "to_db/%s" % sys.argv[1].split("/")[-1])
     
+
     for report in db.get_reports():
         db.insert_to_db(report)
 
