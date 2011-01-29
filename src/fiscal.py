@@ -11,6 +11,7 @@ import time
 
 CONFIG_DIR = path.abspath("configs")
 INBOX = path.abspath("inbox.mbox")
+TO_DB = path.abspath("to_db")
 INBOX_ARCHIVE = path.abspath("inbox_archive.mbox")
 
 def execute(command):
@@ -69,7 +70,7 @@ def main():
 
             print("  >> %s %s %s" % (h_time, h_from, body))
 
-            temp_fd, temp_name = mkstemp(".gnokii")
+            temp_fd, temp_name = mkstemp(".to_query", None, TO_DB)
             with os.fdopen(temp_fd, "w") as file:
                 file.write(content)
 
