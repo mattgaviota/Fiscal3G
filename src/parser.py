@@ -8,7 +8,8 @@ class Parser():
     
     def __init__(self):
         self.parser = SafeConfigParser()
-        self.parser.read(os.path.expanduser('~/Fiscal3G/config.ini'))
+        #self.parser.read(os.path.expanduser('~/Fiscal3G/config.ini'))
+        self.parser.read('../config.ini')
         self.serverdata = []
         self.tablevalues = []
         self.table = []
