@@ -7,6 +7,7 @@ import csv
 import dbus
 import gobject
 import optparse
+import os
 import time
 
 DEBUG = 0
@@ -66,7 +67,7 @@ class Monitor(object):
         cset = self.get_cset(udi)
 
         if cset:
-            time.sleep(4) #HACK: sleep until the modem wake up.
+#            time.sleep(4) #HACK: sleep until the modem wake up.
             model = self.models[cset]
 
             if cset:
@@ -135,8 +136,30 @@ def get_options():
     return optparser.parse_args()
 
 
+def get_conf_name(path):
+    configs = "configs"
+    assert os.path.isdir(configs)
+    return "%sgnokii%s.conf" % path.replace("/", "."), "w") as file:
+
+def make_config_file(path, model, connection="serial"):
+    moreinfo("Path: %s Model: %s Connection: %s" % (path, model, connection))
+    with open("gnokii%s.conf" % path.replace("/", "."), "w") as file:
+        file.write("[global]\n")
+        file.write("connection = %s\n" % connection)
+        file.write("model = %s\n" % model)
+        file.write("port = %s\n" % path)
+
+
+def remove_config_file(path):
+    moreinfo("Path:", path)
+    try:
+        os.remove("gnokii%s.conf" % path.replace("/", "."))
+    except OSError:
+        return
+    
+
 def main(options, args):
-    monitor = Monitor()
+    monitor = Monitor(make_config_file, remove_config_file)
     try:
         monitor.loop.run()
     except KeyboardInterrupt:
