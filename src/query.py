@@ -40,11 +40,8 @@ class Query():
         
     def format_data_to_insert(self):
         file = open(self.path, 'r')
-        data = file.readlines()
+        data = [line.strip() for line in file.readlines()]
         self.reports = []
-        for index, line in enumerate(data):
-            data[index] = line[:-1]
-        
         horaenvio = data[0].split()[1].replace(':','')
         horarecepcion = data[1].split()[1].replace(':','')    
         telefono = data[2][4:]
