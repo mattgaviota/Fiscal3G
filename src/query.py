@@ -42,6 +42,8 @@ class Query():
         file = open(self.path, 'r')
         data = [line.strip() for line in file.readlines()]
         self.reports = []
+        data = [line.strip() for line in data]
+        
         horaenvio = data[0].split()[1].replace(':','')
         horarecepcion = data[1].split()[1].replace(':','')    
         telefono = data[2][4:]
