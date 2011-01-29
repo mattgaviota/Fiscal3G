@@ -9,8 +9,8 @@ import sys
 class Query():
 
     def __init__(self, args):
-        self.sqlsentence = ('INSERT INTO %s(%s, %s, %s, %s, %s, mesa)'
-                            'VALUES(%s, %s, %s, %s, %s, 0)')
+        self.sqlsentence = ('INSERT INTO %s(%s, %s, %s, %s, %s)'
+                            'VALUES(%s, %s, %s, %s, %s)')
         self.path = args[1]
 
     def connect_to_db(self, serverdata):
