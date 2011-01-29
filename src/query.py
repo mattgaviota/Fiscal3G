@@ -3,6 +3,7 @@
 
 from parser import Parser
 import MySQLdb
+import shutil
 import sys
 
 class Query():
@@ -47,9 +48,15 @@ class Query():
         horaenvio = data[0].split()[1].replace(':','')
         horarecepcion = data[1].split()[1].replace(':','')
         telefono = data[2][4:]
-        campos = [campo for campo in "".join([
-            char if char.isdigit() else ";"
-                for char in data[3]]).split(";") if campo]
+
+        body = data[3]
+        normalbody = "".join([char if char.isdigit() else ";"
+            for char in body])
+        campos = [campo for campo in normalbody.split(";")
+            if campo]
+
+        print("### " + "".join(campos))
+
         if len(campos) > 1:
             planilla = campos[0]
             ordenes = campos[1:]
@@ -69,7 +76,8 @@ def main():
         for report in db.get_reports():
             db.insert_to_db(report)
     except:
-        print("XX Está la base de datos online?")
+        print("    XX Está la base de datos online?")
+        shutil.move(sys.argv[1], "to_db")
 
 
 if __name__ == '__main__':
