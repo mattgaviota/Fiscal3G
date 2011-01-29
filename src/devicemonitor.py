@@ -2,6 +2,7 @@
 
 from dbus.mainloop.glib import DBusGMainLoop
 from debug import debug
+import shutil
 from decoradores import Verbose
 import csv
 import dbus
@@ -135,35 +136,48 @@ def get_options():
     # Process the options
     return optparser.parse_args()
 
-
 def get_conf_name(path):
     configs = "configs"
     assert os.path.isdir(configs)
-    return "%sgnokii%s.conf" % path.replace("/", "."), "w") as file:
+    return "%s/gnokii%s.conf" % (configs, path.replace("/", "."))
 
 def make_config_file(path, model, connection="serial"):
     moreinfo("Path: %s Model: %s Connection: %s" % (path, model, connection))
-    with open("gnokii%s.conf" % path.replace("/", "."), "w") as file:
-        file.write("[global]\n")
-        file.write("connection = %s\n" % connection)
-        file.write("model = %s\n" % model)
-        file.write("port = %s\n" % path)
+    with open(get_conf_name(path), "w") as file:
+        file.writelines([
+            "[global]\n",
+            "initlength = default\n",
+            "use_locking = no\n",
+            "serial_baudrate = 19200\n",
+            "serial_write_usleep = 1\n",
+            "smsc_timeout = 30\n",
+            "connection = %s\n" % connection,
+            "model = %s\n" % model,
+            "port = %s\n" % path,
+            "[logging]"
+            "debug = on\n"
+            "rlpdebug = off\n"
+            "xdebug = off\n"
+        ])
 
 
 def remove_config_file(path):
     moreinfo("Path:", path)
     try:
-        os.remove("gnokii%s.conf" % path.replace("/", "."))
+        os.remove(get_conf_name(path))
     except OSError:
         return
     
 
 def main(options, args):
+    shutil.rmtree("configs")
+    os.mkdir("configs")
     monitor = Monitor(make_config_file, remove_config_file)
     try:
         monitor.loop.run()
     except KeyboardInterrupt:
         return 0
+    shutil.rmtree("configs")
 
 
 if __name__ == "__main__":
