@@ -11,10 +11,12 @@ REPORT_ARCHIVE = path.abspath("report_archive.mbox")
 
 class Query():
 
-    def __init__(self, args):
+    def __init__(self):
         self.sqlsentence = ('INSERT INTO %s(%s, %s, %s, %s, %s)'
                             'VALUES(%s, %s, %s, %s, %s)')
-        self.path = args[1]
+        
+    def set_path(self, path):
+        self.path = path
 
     def connect_to_db(self, serverdata):
         self.datab = MySQLdb.connect(serverdata[0], serverdata[1],
@@ -55,8 +57,7 @@ class Query():
         body = data[3]
         normalbody = "".join([char if char.isdigit() else ";"
             for char in body])
-        campos = [campo for campo in normalbody.split(";")
-            if campo]
+        campos = [campo for campo in normalbody.split(";")if campo]
 
         print("### " + ";".join(campos))
         
@@ -68,24 +69,28 @@ class Query():
             return True
         else:
             print("  xxx %s %s %s" % (horaenvio, telefono, data[3]))
-
+    
 
 def main():
-    db = Query(sys.argv)
+    db = Query()
     db.get_data_from_config()
-    db.format_data_to_insert()
-
-    with open(REPORT_ARCHIVE, "a") as file:
-        file.write("%s\n" % db.get_reports)
-
+    
     try:
         db.connect_to_db(db.get_serverdata())
     except:
         print("    XX Está la base de datos online?")
-        shutil.move(sys.argv[1], "to_db/%s" % sys.argv[1].split("/")[-1])
+        for arg in sys.argv[1:]:
+            shutil.move(arg, "to_db/%s" % arg.split("/")[-1])
     else:
-        for report in db.get_reports():
-            db.insert_to_db(report)
+        for arg in sys.argv[1:]:
+            db.set_path(arg)
+            db.format_data_to_insert()
+            
+            with open(REPORT_ARCHIVE, "a") as file:
+                file.write("%s\n" % db.get_reports)
+            
+            for report in db.get_reports():
+                db.insert_to_db(report)
 
 
 if __name__ == '__main__':
