@@ -28,7 +28,7 @@ class Server(object):
 
         self.device_path = device_path
         device_name = self.device_path.lstrip("/dev/")
-        self.config_section = "%s-%s" % (device_name, model)
+        self.config_section = "%s.%s" % (device_name, model)
 
         self.model = model
         self.connection = connection or "serial"
@@ -40,7 +40,7 @@ class Server(object):
 
         self.configure_dirs()
 
-        self._keep_running = False
+        self._keep_running = True
         self.monitor(self)
     
 
@@ -156,7 +156,7 @@ class Server(object):
             return proc
 
 
-    @Retry(10, pause=1)
+    @Retry(20, pause=5)
     def get_description(self):
         if not self.description:
             proc = self.gnokii("--identify")
@@ -167,6 +167,9 @@ class Server(object):
 
         if self.description["IMEI"].isdigit():
             return self.description
+        else:
+            debug("%s has no IMEI?" % self.device_path)
+            return
 
 
     def close(self):
@@ -179,7 +182,10 @@ class Server(object):
         self.wait()
 
         for pause in xrange(15):
-            if self._smsd.returncode:
+            if self._smsd is None:
+                debug("smsd was no active")
+                return
+            elif self._smsd.returncode:
                 break
             else:
                 time.sleep(1)

@@ -66,8 +66,8 @@ class Monitor(object):
         cset = self.get_cset(udi)
 
         if cset:
+            time.sleep(4) #HACK: sleep until the modem wake up.
             model = self.models[cset]
-#            time.sleep(4) #HACK: sleep until the modem wake up.
 
             if cset:
                 self.modems[udi] = self.get_path(udi), model
