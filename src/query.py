@@ -91,7 +91,9 @@ def main():
             
             for report in db.get_reports():
                 db.insert_to_db(report)
-
+            
+            #os.remove(arg)
+    return 0
 
 if __name__ == '__main__':
     exit(main())

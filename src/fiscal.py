@@ -73,11 +73,9 @@ def main():
             with os.fdopen(temp_fd, "w") as file:
                 file.write(content)
 
-            temp_files.append(temp_name)
-
-        print("Impactando en la base de datos:")
-        for file in temp_files:
-            execute("python src/query.py %s" % file)
+#        print("Impactando en la base de datos:")
+#        for file in temp_files:
+#            execute("python src/query.py %s" % file)
 
     else:
         print("No hay novedades de momento...")
