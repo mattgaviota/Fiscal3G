@@ -72,6 +72,8 @@ class Query():
     
 
 def main():
+    if not sys.argv[1:] or sys.argv[1] == 'to_db/*':
+        return 0
     db = Query()
     db.get_data_from_config()
     

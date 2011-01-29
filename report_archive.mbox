@@ -63,3 +63,5 @@
 <bound method Query.get_reports of <__main__.Query instance at 0x8940bcc>>
 <bound method Query.get_reports of <__main__.Query instance at 0x8f25bcc>>
 <bound method Query.get_reports of <__main__.Query instance at 0xa052bcc>>
+<bound method Query.get_reports of <__main__.Query instance at 0x9586bec>>
+<bound method Query.get_reports of <__main__.Query instance at 0x8669bec>>
