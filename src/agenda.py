@@ -6,7 +6,7 @@ import os
 import csv
 from tempfile import mkstemp
 
-OUTBOX = os.path.abspath("outbox.mbox")
+OUTBOX = os.path.abspath("outbox")
 
 class Contact():
     
