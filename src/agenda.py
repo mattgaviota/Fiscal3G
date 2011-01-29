@@ -96,7 +96,7 @@ class Phonebook():
         print '''
             Nombre       :  %s
             Número       :  %s
-            Aspectos       :  %s
+            Aspectos     :  %s
             Seleccionado : [%s]
             ''' %(values[0], values[1], values[2], values[3])
         print
@@ -119,18 +119,23 @@ class Phonebook():
                 pass
         return chosedaspects
     
-    def select_by_aspect(self):
-        for key, value in sorted(self.aspects.iteritems()):
-            print '%s : %s' %(key, value)
-        options = raw_input('Seleccionar uno o mas números de Aspectos : ')
-        for option in options:
-            print option
-            try:
-                for index, contact in enumerate(self.listofcontacts):
-                    if self.aspects[option] in contact.get_data()[2]:
-                        self.select_contact(index)
-            except KeyError:
-                pass
+    def select_by_aspect(self, aspect = None, band = True):
+        if band:
+            for key, value in sorted(self.aspects.iteritems()):
+                print '%s : %s' %(key, value)
+            options = raw_input('Seleccionar uno o mas números de Aspectos : ')
+            for option in options:
+                print option
+                try:
+                    for index, contact in enumerate(self.listofcontacts):
+                        if self.aspects[option] in contact.get_data()[2]:
+                            self.select_contact(index)
+                except KeyError:
+                    pass
+        else:
+            for index, contact in enumerate(self.listofcontacts):
+                        if aspect in contact.get_data()[2]:
+                            self.select_contact(index)
         return True
     
     def add_contact_to_aspect(self):
@@ -233,7 +238,6 @@ class Phonebook():
             name, number, aspects = tuple(row)
             contact = Contact(name, number, eval(aspects))
             self.add_contact(contact)
-            print row
         return True
     
     def write_contacts_to_csv(self):
@@ -279,13 +283,15 @@ class Phonebook():
     
     def write_sms_to_send(self, band = True):
         if band:
-            telefonos = []
+            print 'Aspectos'
             for key, value in sorted(self.aspects.iteritems()):
                 print '%s : %s' %(key, value)
             options = raw_input('Seleccionar uno o mas números de Aspectos : ')
             try:
                 for option in options:
-                    telefonos.append(self.select_phone_to_send(self.aspects[option]))
+                    aspect = self.aspects[option]
+                    self.select_by_aspect(aspect, False)
+                    telefonos = self.select_phone_to_send(aspect)
             except KeyError:
                     print 'Aspecto inexistente'
         else:
@@ -452,8 +458,8 @@ FUNCTION = {
     
 def main():
     phonebook = Phonebook()
-    ##load_contacts_from_csv(phonebook)
-    ##load_aspects_from_csv(phonebook)
+    load_contacts_from_csv(phonebook)
+    load_aspects_from_csv(phonebook)
     os.system('clear')
     menu()
     option = raw_input('Ingrese opción: ')
