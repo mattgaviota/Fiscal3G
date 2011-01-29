@@ -47,7 +47,7 @@ class Query():
 
         horaenvio = data[0].split()[1].replace(':','')
         horarecepcion = data[1].split()[1].replace(':','')
-        telefono = data[2][4:]
+        telefono = data[2][-10:]
 
         body = data[3]
         normalbody = "".join([char if char.isdigit() else ";"
