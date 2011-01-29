@@ -32,8 +32,7 @@ def main():
 
     print("Revisando mensajes:")
     for config_file in config_files:
-        print("  %s" % path.split(config_file)[-1])
-        print("    %d" % get_sms(config_file))
+        print("  %s, %d" % (path.split(config_file)[-1], get_sms(config_file)))
 
 
     print("Procesando mensajes:")
@@ -70,7 +69,7 @@ def main():
 
             print("  >> %s %s %s" % (h_time, h_from, body))
 
-            temp_fd, temp_name = mkstemp(".to_query", None, TO_DB)
+            temp_fd, temp_name = mkstemp(".to_query", "", TO_DB)
             with os.fdopen(temp_fd, "w") as file:
                 file.write(content)
 

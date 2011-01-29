@@ -74,20 +74,18 @@ def main():
     db = Query(sys.argv)
     db.get_data_from_config()
     db.format_data_to_insert()
-    print db.get_reports()
 
     with open(REPORT_ARCHIVE, "a") as file:
-        file.write("%s\n")
+        file.write("%s\n" % db.get_reports)
 
     try:
         db.connect_to_db(db.get_serverdata())
     except:
         print("    XX Está la base de datos online?")
         shutil.move(sys.argv[1], "to_db/%s" % sys.argv[1].split("/")[-1])
-    
-
-    for report in db.get_reports():
-        db.insert_to_db(report)
+    else:
+        for report in db.get_reports():
+            db.insert_to_db(report)
 
 
 if __name__ == '__main__':

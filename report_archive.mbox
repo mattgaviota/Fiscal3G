@@ -4,3 +4,9 @@
 %s
 %s
 %s
+<bound method Query.get_reports of <__main__.Query instance at 0xd499e0>>
+<bound method Query.get_reports of <__main__.Query instance at 0xe069e0>>
+<bound method Query.get_reports of <__main__.Query instance at 0xb8d9e0>>
+<bound method Query.get_reports of <__main__.Query instance at 0x203b9e0>>
+<bound method Query.get_reports of <__main__.Query instance at 0x1b639e0>>
+<bound method Query.get_reports of <__main__.Query instance at 0xf4e9e0>>
