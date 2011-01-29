@@ -2,10 +2,12 @@
 #-*- coding: UTF-8 -*-
 
 from os import path
+from subprocess import call
+from tempfile import mkstemp
 import os
 import shlex
 import shutil
-from subprocess import call
+import time
 
 CONFIG_DIR = path.abspath("configs")
 INBOX = path.abspath("inbox.mbox")
@@ -32,21 +34,49 @@ def main():
         print("  %s" % path.split(config_file)[-1])
         print("    %d" % get_sms(config_file))
 
+
     print("Procesando mensajes:")
-    inbox = open(INBOX).read()
+    try:
+        inbox = open(INBOX).read()
+    except IOError:
+        inbox = ""
 
-    messages = (message for message in inbox.split("\n\nFrom") if message)
-    for message in messages:
-        lines = message.splitlines()
-        print(lines[0])
+    if inbox:
+        with open(INBOX_ARCHIVE, "a") as file:
+            file.write(inbox)
 
-        h_from = lines[0].split("@")[0][-10:]
-        print("From: %s" % h_from)
-        h_time = lines[0].split()[-2]
-        print("Time: %s" % h_time)
+        os.remove(INBOX)
 
-        body = "\n".join(message.split("\n\n")[1:]).strip()
-        print(body)
+        tmp_files = []
+        messages = (message for message in inbox.split("\n\nFrom") if message)
+        for message in messages:
+            lines = message.splitlines()
+
+            h_from = lines[0].split("@")[0][-10:]
+            h_time = lines[0].split()[-2]
+            body = "\n".join(message.split("\n\n")[1:]).strip()
+
+            content = (
+                "%s %s\n"
+                "%s %s\n"
+                "%s\n"
+                "%s\n" % (
+                    time.strftime("%Y-%m-%d"), h_time,
+                    time.strftime("%Y-%m-%d"), time.strftime("%T"),
+                    h_from,
+                    body,
+                    ))
+
+            print("%s %s %s" % (h_time, h_from, body))
+
+            temp_fd, temp_name = mkstemp(".gnokii")
+            with os.fdopen(temp_fd, "w") as file:
+                file.write(content)
+
+            tmp_files.append(temp_name)
+
+        print("Impactando en la base de datos:")
+
 
 if __name__ == "__main__":
     exit(main())
