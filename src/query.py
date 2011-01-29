@@ -9,7 +9,7 @@ import sys
 class Query():
 
     def __init__(self, args):
-        self.sqlsentence = ('INSERT INTO %s(%s, %s, %s, %s, %s, %s)'
+        self.sqlsentence = ('INSERT INTO %s(%s, %s, %s, %s, %s, mesa)'
                             'VALUES(%s, %s, %s, %s, %s, 0)')
         self.path = args[1]
 
@@ -56,7 +56,9 @@ class Query():
             if campo]
 
         print("### " + "".join(campos))
-
+        print campos
+        print self.values
+        
         if len(campos) > 1:
             planilla = campos[0]
             ordenes = campos[1:]
@@ -71,13 +73,15 @@ def main():
     db = Query(sys.argv)
     db.get_data_from_config()
     db.format_data_to_insert()
+    print db.get_reports()
     try:
         db.connect_to_db(db.get_serverdata())
-        for report in db.get_reports():
-            db.insert_to_db(report)
     except:
         print("    XX Está la base de datos online?")
         shutil.move(sys.argv[1], "to_db")
+    
+    for report in db.get_reports():
+        db.insert_to_db(report)
 
 
 if __name__ == '__main__':
