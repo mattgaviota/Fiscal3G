@@ -5,5 +5,5 @@
 #    content     as stdin
 
 time=$(date +"%Y-%m-%d %T") #Human legible timestamp
-file="$2.$time.$1"
+file="inbox/$2.$time.$1"
 echo $time $(tee "$file")
