@@ -3,52 +3,52 @@ model = AT
 connection = serial
 port = /dev/ttyUSB0
 
-[phone_ttyUSB0-AT]
+[phone_ttyUSB0.AT]
 model = AT
 connection = serial
 port = /dev/ttyUSB0
 
-[phone_ttyUSB1-AT]
+[phone_ttyUSB1.AT]
 model = AT
 connection = serial
 port = /dev/ttyUSB1
 
-[phone_ttyUSB2-AT]
+[phone_ttyUSB2.AT]
 model = AT
 connection = serial
 port = /dev/ttyUSB2
 
-[phone_ttyUSB3-AT]
+[phone_ttyUSB3.AT]
 model = AT
 connection = serial
 port = /dev/ttyUSB3
 
-[phone_ttyUSB4-AT]
+[phone_ttyUSB4.AT]
 model = AT
 connection = serial
 port = /dev/ttyUSB4
 
-[phone_ttyUSB5-AT]
+[phone_ttyUSB5.AT]
 model = AT
 connection = serial
 port = /dev/ttyUSB5
 
-[phone_ttyUSB6-AT]
+[phone_ttyUSB6.AT]
 model = AT
 connection = serial
 port = /dev/ttyUSB6
 
-[phone_ttyUSB7-AT]
+[phone_ttyUSB7.AT]
 model = AT
 connection = serial
 port = /dev/ttyUSB7
 
-[phone_ttyUSB8-AT]
+[phone_ttyUSB8.AT]
 model = AT
 connection = serial
 port = /dev/ttyUSB8
 
-[phone_ttyUSB9-AT]
+[phone_ttyUSB9.AT]
 model = AT
 connection = serial
 port = /dev/ttyUSB9
