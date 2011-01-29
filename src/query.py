@@ -58,7 +58,7 @@ class Query():
         campos = [campo for campo in normalbody.split(";")
             if campo]
 
-        print("### " + "".join(campos))
+        print("### " + ";".join(campos))
         
         if len(campos) > 1:
             planilla = campos[0]
