@@ -37,8 +37,8 @@ class Metaserver(object):
             model))
         server = Server(self, device_path, protocol, model)
         sheep = self.farm.get_sheep(server.send_sms)
-        self.servers[server.description["IMEI"]] = server
-        self.sheeps[server.description["IMEI"]] = server
+        self.servers[device_path] = server
+        self.sheeps[device_path] = server
         self.farm.put_sheep(sheep)
         server.start_smsd()
         sheep.start()

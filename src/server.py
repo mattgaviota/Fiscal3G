@@ -57,6 +57,7 @@ class Server(object):
     @Auto_verbose(1, 2)
     def start_smsd(self):
         self._keep_running = True
+        return self._keep_running
 
 
     @Auto_verbose(1, 2)
@@ -90,21 +91,27 @@ class Server(object):
                     os.path.join(self.parent.pathbase, "bin/handler.sh")]
                 debug(" ".join(command))
 
-                stdout = open(os.path.join(self.pathbase, "stdout"), "w")
+                stdout = open(os.path.join(self.pathbase, "stdout"), "a")
+                stdout.write(" ".join(command) + "\n")
                 stderr = open(os.path.join(self.pathbase, "stderr"), "w")
                 self._smsd = Popen(command, stdout=stdout,
                     stderr=stderr, shell=True)
 
                 self._smsd.wait()
 
-            time.sleep(1)
+            else:
+                debug("Server:Monitor: %s, %s" %
+                    (self._keep_running, self.is_alive()))
+
+            time.sleep(5)
 
 
     def is_alive(self):
-        if self._smsd and self._smsd.returncode is None:
-            return True
-        else:
-            return False
+        if self._smsd:
+            if self._smsd.returncode is None:
+                return True
+            else:
+                return False
 
 
     def configure_dirs(self):
@@ -170,7 +177,6 @@ class Server(object):
         """
 
         self.wait()
-        self._smsd.send_signal(SIGTERM)
 
         for pause in xrange(15):
             if self._smsd.returncode:
@@ -181,6 +187,9 @@ class Server(object):
         self._smsd.kill()
 
         return self.is_alive()
+
+    def wait(self):
+        time.sleep(2)
 
 
 def get_options():
