@@ -7,10 +7,10 @@ import sys
 
 class Query():
     
-    def __init__(self, *args):
+    def __init__(self, args):
         self.sqlsentence = 'INSERT INTO %s(%s, %s, %s, %s, %s, %s)\
                             VALUES(%s, %s, %s, %s, %s, 0)'
-        self.path = args[0]
+        self.path = args[1]
         
     def connect_to_db(self, serverdata):
         self.datab = MySQLdb.connect(serverdata[0], serverdata[1], 
@@ -42,7 +42,7 @@ class Query():
         file = open(self.path, 'r')
         data = file.readlines()
         self.reports = []
-        for index, line in data:
+        for index, line in enumerate(data):
             data[index] = line[:-1]
         
         horaenvio = data[0].split()[1].replace(':','')
@@ -59,8 +59,8 @@ class Query():
 def main():
     db = Query(sys.argv)
     db.get_data_from_config()
-    db.connect_to_db(db.get_serverdata())
     db.format_data_to_insert()
+    db.connect_to_db(db.get_serverdata())
     for report in db.get_reports():
         db.insert_to_db(report)
     
