@@ -9,7 +9,7 @@ import sys
 class Query():
 
     def __init__(self, args):
-        self.sqlsentence = ('INSERT INTO %s(%s, %s, %s, %s, %s, %s)'
+        self.sqlsentence = ('INSERT INTO %s(%s, %s, %s, %s, %s, mesa)'
                             'VALUES(%s, %s, %s, %s, %s, 0)')
         self.path = args[1]
 
@@ -47,7 +47,7 @@ class Query():
 
         horaenvio = data[0].split()[1].replace(':','')
         horarecepcion = data[1].split()[1].replace(':','')
-        telefono = data[2][4:]
+        telefono = data[2][:10]
 
         body = data[3]
         normalbody = "".join([char if char.isdigit() else ";"
@@ -74,6 +74,7 @@ def main():
         for report in db.get_reports():
             db.insert_to_db(report)
     except:
+        raise
         print("    XX Está la base de datos online?")
         shutil.move(sys.argv[1], "to_db/%s" % sys.argv[1].split("/")[-1])
 
