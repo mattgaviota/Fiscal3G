@@ -458,8 +458,8 @@ FUNCTION = {
     
 def main():
     phonebook = Phonebook()
-    load_contacts_from_csv(phonebook)
-    load_aspects_from_csv(phonebook)
+    load_contacts_from_csv_to_phonebook(phonebook)
+    load_aspects_from_csv_to_phonebook(phonebook)
     os.system('clear')
     menu()
     option = raw_input('Ingrese opción: ')
