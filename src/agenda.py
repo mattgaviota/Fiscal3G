@@ -4,8 +4,9 @@
 #imports
 import os
 import csv
-from decoradores import Verbose
+from tempfile import mkstemp
 
+OUTBOX = os.path.abspath("outbox.mbox")
 
 class Contact():
     
@@ -14,7 +15,7 @@ class Contact():
         self.number = number
         self.aspects = aspects or []
         self.selected = selected or []
-    
+        
     def get_data(self):
         if self.selected:
             return [self.name, self.number, self.aspects, 'x']
@@ -223,7 +224,6 @@ class Phonebook():
         aspects = csv.reader(file, delimiter= ',', quotechar= '|')
         for row in aspects:
             self.aspects[row[0]] = row[1]
-        print self.aspects
         return True 
     
     def load_contacts_from_csv(self):
@@ -233,10 +233,11 @@ class Phonebook():
             name, number, aspects = tuple(row)
             contact = Contact(name, number, eval(aspects))
             self.add_contact(contact)
+            print row
         return True
     
     def write_contacts_to_csv(self):
-        file = open('./contacts2.csv', 'a')
+        file = open('./contacts.csv', 'a')
         contactwriter = csv.writer(file, delimiter= ',', quotechar= '|', 
                         quoting= csv.QUOTE_ALL)
         for contact in self.listofcontacts:
@@ -245,12 +246,62 @@ class Phonebook():
         return True
     
     def write_aspects_to_csv(self):
-        file = open('./aspects2.csv', 'a')
+        file = open('./aspects.csv', 'a')
         contactwriter = csv.writer(file, delimiter= ',', quotechar= '|', 
                         quoting= csv.QUOTE_ALL)
         for key, value in self.aspects.iteritems():
             contactwriter.writerow([key, value])
         file.close()
+        return True
+    
+    def write_sms_to_folder(self, telefonos, mensaje):
+        reports = []
+        for telefono in telefonos:
+            report = (
+                "%s\n"
+                "%s\n"
+                % (telefono, mensaje)
+                )
+            reports.append(report)
+        
+        for report in reports:
+            temp_fd, tempfile = mkstemp(".send", "",OUTBOX)
+            with os.fdopen(temp_fd, 'w') as file:
+                file.write(report)
+    
+    def select_phone_to_send(self, aspect):
+        telefonos = []
+        for contact in self.listofcontacts:
+            if contact.is_selected():
+                if aspect in contact.get_data()[2]:
+                    telefonos.append(contact.get_data()[1])
+        return telefonos
+    
+    def write_sms_to_send(self, band = True):
+        if band:
+            telefonos = []
+            for key, value in sorted(self.aspects.iteritems()):
+                print '%s : %s' %(key, value)
+            options = raw_input('Seleccionar uno o mas números de Aspectos : ')
+            try:
+                for option in options:
+                    telefonos.append(self.select_phone_to_send(self.aspects[option]))
+            except KeyError:
+                    print 'Aspecto inexistente'
+        else:
+            option = raw_input('ingrese número de contacto, de telefono o nombre: ')
+            try:
+                contact = self.listofcontacts[int(option)]
+                telefonos = [contact.get_data()[1]]
+            except (IndexError, ValueError):
+                try:
+                    contact = self.listofcontacts[self.search_contact(option)]
+                    telefonos = [contact.get_data()[1]]
+                except (IndexError, ValueError):
+                    print 'Contacto inexistente'
+        
+        mensaje = raw_input('Escriba mensaje a enviar: ')
+        self.write_sms_to_folder(telefonos, mensaje)                
         return True
 
 #main modules
@@ -271,9 +322,19 @@ def menu():
         [13]  Seleccionar Ninguno           Salvar
         [14]  Seleccionar por Aspecto/s    [18] Aspectos     
         [15]  Deseleccionar por Aspecto/s  [19] Contactos
-
-        [20]  SALIR
+        
+        Enviar Mensaje a
+        [20] Aspectos
+        [21] Contacto
+        
         """
+    return True
+
+def send_sms_to_contact(phonebook):
+    phonebook.write_sms_to_send(False)
+
+def send_sms_to_aspects(phonebook):
+    phonebook.write_sms_to_send()
     return True
 
 def show_aspects_from_phonebook(phonebook):
@@ -385,7 +446,8 @@ FUNCTION = {
             '17': load_contacts_from_csv_to_phonebook,
             '18': write_aspects_to_phonebook_to_csv,
             '19': write_contacts_to_phonebook_to_csv,
-            '20': quit
+            '20': send_sms_to_aspects,
+            '21': send_sms_to_contact
             }
     
 def main():
@@ -395,7 +457,7 @@ def main():
     os.system('clear')
     menu()
     option = raw_input('Ingrese opción: ')
-    while ((option) != '20'):
+    while ((option) != ''):
         try:
             #os.system('clear')
             FUNCTION[option](phonebook)
