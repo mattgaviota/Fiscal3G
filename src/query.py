@@ -42,8 +42,7 @@ class Query():
         file = open(self.path, 'r')
         data = file.readlines()
         self.reports = []
-        for index, line in enumerate(data):
-            data[index] = line[:-1]
+        data = [line.strip() for line in data]
         
         horaenvio = data[0].split()[1].replace(':','')
         horarecepcion = data[1].split()[1].replace(':','')    
@@ -60,6 +59,7 @@ def main():
     db = Query(sys.argv)
     db.get_data_from_config()
     db.format_data_to_insert()
+    print db.get_reports()
     db.connect_to_db(db.get_serverdata())
     for report in db.get_reports():
         db.insert_to_db(report)
