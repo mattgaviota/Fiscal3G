@@ -6,11 +6,11 @@ SMSs: 111   Votos: 1562  Ultimo: 19:33:55      5  3874028016   ENCINA CLAUDIA
 SMSs: 117   Votos: 1642  Ultimo: 19:20:38      8  3874028405   ROMANO ARMADA MARTIN          
 SMSs: 121   Votos: 1411  Ultimo: 18:43:34      4  3875324651   SAAVEDRA NELLY                
 SMSs: 123   Votos: 1168  Ultimo: 20:05:14      4  3875325754   MANSILLA NATALIA              
-SMSs: 123   Votos: 1729  Ultimo: 20:22:56      6  3875056955   CURUTCHET FEDERICO            
+SMSs: 124   Votos: 1758  Ultimo: 20:27:16      6  3875056955   CURUTCHET FEDERICO            
 SMSs: 15    Votos: 212   Ultimo: 12:49:54      4  3886548961   CORDOBA PEDRO                 
 SMSs: 17    Votos: 229   Ultimo: 19:03:27      7  3875178741   RIVERO PABLO                  
 SMSs: 26    Votos: 371   Ultimo: 17:24:50      0  3876840041   SANCHEZ PERRY MARIA INES      
-SMSs: 3070  Votos: 38920  Ultimo: 20:22:56      6  38           TOTAL                         
+SMSs: 3073  Votos: 38949  Ultimo: 20:27:16      6  38           TOTAL                         
 SMSs: 30    Votos: 320   Ultimo: 18:05:48      8  3876055338   YANEZ NATALIA LORENA          
 SMSs: 30    Votos: 364   Ultimo: 19:15:06      6  3875841601   BARRIONUEVO VICTOR HUGO       
 SMSs: 41    Votos: 608   Ultimo: 18:52:13      3  3875835814   LAMAS ANA GABRIELA            
