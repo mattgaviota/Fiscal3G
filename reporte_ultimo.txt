@@ -21,6 +21,7 @@ Ultimo: 19:08:54  Votos: 567   SMSs: 43     4  3875747223   ARAGON DANA
 Ultimo: 19:09:06  Votos: 816   SMSs: 51     6  3875187702   SARAVIA NANCY PATRICIA        
 Ultimo: 19:14:20  Votos: 1063  SMSs: 75     0  3874109330   FAVIAN RUBEN MATIAS           
 Ultimo: 19:14:53  Votos: 1020  SMSs: 71     3  3875745942   DURAN ANALIA                  
+Ultimo: 19:14:53  Votos: 759   SMSs: 74     3  3875713403   LAMANA MAURICIO               
 Ultimo: 19:14:53  Votos: 759   SMSs: 74     3  3875713403   LAMANNA MAURICIO              
 Ultimo: 19:15:06  Votos: 364   SMSs: 30     6  3875841601   BARRIONUEVO VICTOR HUGO       
 Ultimo: 19:17:44  Votos: 824   SMSs: 56     4  3874631109   ARAGON GONZALO                
@@ -30,10 +31,10 @@ Ultimo: 19:20:38  Votos: 1642  SMSs: 117    8  3874028405   ROMANO ARMADA MARTIN
 Ultimo: 19:23:35  Votos: 1230  SMSs: 110    5  3874143422   CHAVEZ SILVIA                 
 Ultimo: 19:29:22  Votos: 1513  SMSs: 102    2  3875317289   GARCIA PAMELA ALEJANDRA       
 Ultimo: 19:30:20  Votos: 1012  SMSs: 74     0  3874770373   GUTIERREZ CONDE RICARDO       
-Ultimo: 19:33:42  Votos: 1414  SMSs: 96     2  3874420347   ARAGON GABRIELA               
 Ultimo: 19:33:55  Votos: 1562  SMSs: 111    5  3874028016   ENCINA CLAUDIA                
 Ultimo: 19:33:55  Votos: 1652  SMSs: 117    5  3875056955   CURUTCHET FEDERICO            
-Ultimo: 19:36:10  Votos: 1120  SMSs: 92     0  3875115277   ALVERTI ANGEL                 
-Ultimo: 19:36:38  Votos: 1311  SMSs: 85     8  3874114350   GARCIA MARCELO ALEJANDRO      
-Ultimo: 19:36:58  Votos: 38519  SMSs: 3034   8  38           TOTAL                         
-Ultimo: 19:38:12  Votos: 1517  SMSs: 105    2  3875104226   PALACIOS ROMINA               
+Ultimo: 19:38:25  Votos: 1124  SMSs: 93     5  3875115277   ALVERTI ANGEL                 
+Ultimo: 19:40:22  Votos: 1533  SMSs: 106    2  3875104226   PALACIOS ROMINA               
+Ultimo: 19:53:50  Votos: 1378  SMSs: 93     0  3874114350   GARCIA MARCELO ALEJANDRO      
+Ultimo: 19:55:04  Votos: 1471  SMSs: 100    4  3874420347   ARAGON GABRIELA               
+Ultimo: 19:55:04  Votos: 38679  SMSs: 3049   4  38           TOTAL                         
