@@ -30,10 +30,10 @@ Ultimo: 19:20:38  Votos: 1642  SMSs: 117    8  3874028405   ROMANO ARMADA MARTIN
 Ultimo: 19:23:35  Votos: 1230  SMSs: 110    5  3874143422   CHAVEZ SILVIA                 
 Ultimo: 19:29:22  Votos: 1513  SMSs: 102    2  3875317289   GARCIA PAMELA ALEJANDRA       
 Ultimo: 19:30:20  Votos: 1012  SMSs: 74     0  3874770373   GUTIERREZ CONDE RICARDO       
-Ultimo: 19:30:20  Votos: 1268  SMSs: 83     0  3874114350   GARCIA MARCELO ALEJANDRO      
-Ultimo: 19:30:33  Votos: 1089  SMSs: 90     3  3875115277   ALVERTI ANGEL                 
-Ultimo: 19:31:23  Votos: 1632  SMSs: 115    3  3875056955   CURUTCHET FEDERICO            
-Ultimo: 19:31:49  Votos: 1396  SMSs: 94     9  3874420347   ARAGON GABRIELA               
-Ultimo: 19:31:49  Votos: 1437  SMSs: 100    9  3875104226   PALACIOS ROMINA               
-Ultimo: 19:31:49  Votos: 38315  SMSs: 3019   9  38           TOTAL                         
-Ultimo: 19:32:01  Votos: 1550  SMSs: 109    1  3874028016   ENCINA CLAUDIA                
+Ultimo: 19:33:42  Votos: 1414  SMSs: 96     2  3874420347   ARAGON GABRIELA               
+Ultimo: 19:33:55  Votos: 1562  SMSs: 111    5  3874028016   ENCINA CLAUDIA                
+Ultimo: 19:33:55  Votos: 1652  SMSs: 117    5  3875056955   CURUTCHET FEDERICO            
+Ultimo: 19:36:10  Votos: 1120  SMSs: 92     0  3875115277   ALVERTI ANGEL                 
+Ultimo: 19:36:38  Votos: 1311  SMSs: 85     8  3874114350   GARCIA MARCELO ALEJANDRO      
+Ultimo: 19:36:58  Votos: 38519  SMSs: 3034   8  38           TOTAL                         
+Ultimo: 19:38:12  Votos: 1517  SMSs: 105    2  3875104226   PALACIOS ROMINA               
