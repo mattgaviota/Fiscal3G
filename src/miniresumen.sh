@@ -6,7 +6,7 @@ uniq report_archive.csv | awk -v numero="$1" '
     }
 
     END{
-        printf "%06d ", total
+        printf "%d;", total
     }
 '
 
@@ -16,7 +16,7 @@ awk -v numero="$1" '
     }
 
     END{
-        printf "%06d ", total
+        printf "%d;", total
     }
 ' inbox_archive.mbox
 
