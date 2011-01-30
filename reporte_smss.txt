@@ -1,5 +1,5 @@
-SMSs: 100   Votos: 1471  Ultimo: 19:55:04      4  3874420347   ARAGON GABRIELA               
 SMSs: 102   Votos: 1513  Ultimo: 19:29:22      2  3875317289   GARCIA PAMELA ALEJANDRA       
+SMSs: 105   Votos: 1525  Ultimo: 19:59:44      4  3874420347   ARAGON GABRIELA               
 SMSs: 106   Votos: 1533  Ultimo: 19:40:22      2  3875104226   PALACIOS ROMINA               
 SMSs: 110   Votos: 1230  Ultimo: 19:23:35      5  3874143422   CHAVEZ SILVIA                 
 SMSs: 111   Votos: 1562  Ultimo: 19:33:55      5  3874028016   ENCINA CLAUDIA                
@@ -8,7 +8,7 @@ SMSs: 117   Votos: 1652  Ultimo: 19:33:55      5  3875056955   CURUTCHET FEDERIC
 SMSs: 121   Votos: 1161  Ultimo: 19:18:21      1  3875325754   MANSILLA NATALIA              
 SMSs: 121   Votos: 1411  Ultimo: 18:43:34      4  3875324651   SAAVEDRA NELLY                
 SMSs: 17    Votos: 229   Ultimo: 19:03:27      7  3875178741   RIVERO PABLO                  
-SMSs: 3049  Votos: 38679  Ultimo: 19:55:04      4  38           TOTAL                         
+SMSs: 3056  Votos: 38751  Ultimo: 19:59:44      4  38           TOTAL                         
 SMSs: 30    Votos: 320   Ultimo: 18:05:48      8  3876055338   YANEZ NATALIA LORENA          
 SMSs: 30    Votos: 364   Ultimo: 19:15:06      6  3875841601   BARRIONUEVO VICTOR HUGO       
 SMSs: 41    Votos: 608   Ultimo: 18:52:13      3  3875835814   LAMAS ANA GABRIELA            
@@ -36,5 +36,5 @@ SMSs: 83    Votos: 827   Ultimo: 18:54:59      9  3874415556   VARGAS FERRA NATA
 SMSs: 85    Votos: 1132  Ultimo: 19:20:25      5  3874830730   FERREYRA MILAGRO              
 SMSs: 86    Votos: 907   Ultimo: 18:32:51      1  3874143423   CHAVEZ ROSA                   
 SMSs: 93    Votos: 1124  Ultimo: 19:38:25      5  3875115277   ALVERTI ANGEL                 
-SMSs: 93    Votos: 1378  Ultimo: 19:53:50      0  3874114350   GARCIA MARCELO ALEJANDRO      
+SMSs: 96    Votos: 1408  Ultimo: 20:00:57      7  3874114350   GARCIA MARCELO ALEJANDRO      
 SMSs: 96    Votos: 809   Ultimo: 18:46:35      5  3874647262   NUNEZ LAURA                   
