@@ -3,8 +3,8 @@ awk -F "," '
 
     /espartanos/{
         gsub("\\\|", "")
-        printf "%-30s %-12s", $1, $2
         system("sh src/resumen.sh " $2)
+        printf "  %-30s %-12s\n", $2, $1
     }
 ' contacts.csv 2>/dev/null | sort > reporte.txt
 
