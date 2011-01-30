@@ -39,5 +39,5 @@
  1562  19:33:55   111  5  3874028016   ENCINA CLAUDIA                
  1591  20:04:39   110  9  3874420347   ARAGON GABRIELA               
  1642  19:20:38   117  8  3874028405   ROMANO ARMADA MARTIN          
- 1668  20:08:00   118  0  3875056955   CURUTCHET FEDERICO            
-38859  20:08:00  3066  0  38           TOTAL                         
+ 1684  20:11:02   119  2  3875056955   CURUTCHET FEDERICO            
+38859  20:08:00  3067  0  38           TOTAL                         
