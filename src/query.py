@@ -92,7 +92,8 @@ def main():
         
         with open(REPORT_ARCHIVE, "a") as file:
             for report in db.get_reports():
-                file.write("%s\n" % str(report))
+                file.write("""INSERT INTO `votos` VALUES (%s, %s, %s,"""
+                """%s, %s, 0);\n""" % report[-5:])
                 if conectado:
                     db.insert_to_db(report)
             
