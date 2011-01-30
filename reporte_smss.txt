@@ -1,33 +1,33 @@
 SMSs: 100   Votos: 1494  Ultimo: 18:57:21      1  3875317289   GARCIA PAMELA ALEJANDRA       
-SMSs: 101   Votos: 1468  Ultimo: 19:00:29      9  3874028016   ENCINA CLAUDIA                
-SMSs: 104   Votos: 1169  Ultimo: 18:56:48      8  3874143422   CHAVEZ SILVIA                 
+SMSs: 103   Votos: 1489  Ultimo: 19:08:11      1  3874028016   ENCINA CLAUDIA                
+SMSs: 106   Votos: 1181  Ultimo: 19:07:45      5  3874143422   CHAVEZ SILVIA                 
 SMSs: 113   Votos: 1600  Ultimo: 18:56:00      0  3875056955   CURUTCHET FEDERICO            
 SMSs: 114   Votos: 1608  Ultimo: 19:01:52      2  3874028405   ROMANO ARMADA MARTIN          
-SMSs: 118   Votos: 1136  Ultimo: 18:52:26      6  3875325754   MANSILLA NATALIA              
+SMSs: 120   Votos: 1160  Ultimo: 19:08:11      1  3875325754   MANSILLA NATALIA              
 SMSs: 121   Votos: 1411  Ultimo: 18:43:34      4  3875324651   SAAVEDRA NELLY                
 SMSs: 17    Votos: 229   Ultimo: 19:03:27      7  3875178741   RIVERO PABLO                  
-SMSs: 2929  Votos: 37319  Ultimo: 19:03:27      7  38           TOTAL                         
+SMSs: 2944  Votos: 37491  Ultimo: 19:09:19      9  38           TOTAL                         
 SMSs: 29    Votos: 356   Ultimo: 18:48:07      7  3875841601   BARRIONUEVO VICTOR HUGO       
 SMSs: 30    Votos: 320   Ultimo: 18:05:48      8  3876055338   YANEZ NATALIA LORENA          
-SMSs: 41    Votos: 542   Ultimo: 18:28:10      0  3875747223   ARAGON DANA                   
 SMSs: 41    Votos: 608   Ultimo: 18:52:13      3  3875835814   LAMAS ANA GABRIELA            
+SMSs: 43    Votos: 567   Ultimo: 19:08:54      4  3875747223   ARAGON DANA                   
 SMSs: 48    Votos: 667   Ultimo: 18:37:14      4  3874638502   CHAVARRIA BARBARA             
-SMSs: 49    Votos: 784   Ultimo: 18:27:20      0  3875187702   SARAVIA NANCY PATRICIA        
+SMSs: 51    Votos: 816   Ultimo: 19:09:06      6  3875187702   SARAVIA NANCY PATRICIA        
 SMSs: 55    Votos: 695   Ultimo: 18:07:39      9  3875859160   FLORES MARIA NATALIA          
 SMSs: 57    Votos: 594   Ultimo: 18:08:33      3  3874864954   MONTANEZ CAROLINA             
 SMSs: 61    Votos: 908   Ultimo: 17:34:18      8  3875165583   ARANCIBIA CAROLINA            
 SMSs: 62    Votos: 753   Ultimo: 18:30:24      4  3875733406   LAFUENTE ANA LOURDES          
 SMSs: 65    Votos: 849   Ultimo: 18:50:32      2  3874419097   FAJARDO STELLA MARIS          
-SMSs: 68    Votos: 950   Ultimo: 19:03:14      4  3874770373   GUTIERREZ CONDE RICARDO       
 SMSs: 69    Votos: 1003  Ultimo: 18:57:01      1  3875745942   DURAN ANALIA                  
 SMSs: 69    Votos: 1008  Ultimo: 17:44:24      4  3875812787   GONZALEZ MICAELA              
-SMSs: 71    Votos: 999   Ultimo: 18:36:15      5  3874109330   FAVIAN RUBEN MATIAS           
+SMSs: 69    Votos: 964   Ultimo: 19:04:30      0  3874770373   GUTIERREZ CONDE RICARDO       
+SMSs: 72    Votos: 1015  Ultimo: 19:09:19      9  3874109330   FAVIAN RUBEN MATIAS           
 SMSs: 72    Votos: 914   Ultimo: 18:40:26      6  3875165031   LAFUENTE JOAQUIN              
 SMSs: 73    Votos: 755   Ultimo: 19:00:29      9  3875713403   LAMANNA MAURICIO              
 SMSs: 74    Votos: 759   Ultimo: 18:38:05      5  3875987795   ALVERTI MARIELA               
-SMSs: 75    Votos: 1170  Ultimo: 19:03:27      7  3874114350   GARCIA MARCELO ALEJANDRO      
+SMSs: 76    Votos: 1182  Ultimo: 19:05:38      8  3874114350   GARCIA MARCELO ALEJANDRO      
 SMSs: 78    Votos: 1193  Ultimo: 18:52:39      9  3874828167   GUTIERREZ PABLO EZEQUIEL      
-SMSs: 79    Votos: 983   Ultimo: 18:54:25      5  3875115277   ALVERTI ANGEL                 
+SMSs: 80    Votos: 999   Ultimo: 19:06:26      6  3875115277   ALVERTI ANGEL                 
 SMSs: 81    Votos: 1093  Ultimo: 18:57:47      7  3874830730   FERREYRA MILAGRO              
 SMSs: 81    Votos: 770   Ultimo: 18:35:42      2  3875235939   BELMONTE AVILA ANDREA VERONICA
 SMSs: 83    Votos: 1245  Ultimo: 18:43:34      4  3874420347   ARAGON GABRIELA               
