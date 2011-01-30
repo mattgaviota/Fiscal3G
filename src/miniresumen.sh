@@ -6,7 +6,7 @@ uniq report_archive.csv | awk -v numero="$1," '
     }
 
     END{
-        printf "Votos: %-5d", total
+        printf "%-5d ", total
     }
 '
 
@@ -16,7 +16,7 @@ awk -v numero="$1" '
     }
 
     END{
-        printf "  SMSs: %-5d", total
+        printf "%d ", total
     }
 ' inbox_archive.mbox
 
@@ -36,9 +36,7 @@ awk -v numero="$1" '
         shora = substr(hora, 1, 2)
         sminu = substr(hora, 3, 2)
         ssegu = substr(hora, 5, 2)
-        printf "  Ultimo: %02d:%02d:%02d", shora, sminu, ssegu
+        printf "%02d:%02d:%02d", shora, sminu, ssegu
     }
 
 ' report_archive.csv
-
-echo
