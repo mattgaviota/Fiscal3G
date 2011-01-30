@@ -1,36 +1,36 @@
-Votos: 1002  SMSs:   63  Ultimo: 17:37:03      3  3874114350   GARCIA MARCELO ALEJANDRO      
-Votos: 1006  SMSs:  103  Ultimo: 17:36:25      5  3875325754   MANSILLA NATALIA              
-Votos: 1030  SMSs:   66  Ultimo: 17:16:30      0  3874404111   RUIZ JULIO NAZARENO           
-Votos: 1038  SMSs:   68  Ultimo: 17:37:28      8  3875104226   PALACIOS ROMINA               
-Votos: 1138  SMSs:   96  Ultimo: 17:22:13      3  3875324651   SAAVEDRA NELLY                
-Votos: 1167  SMSs:   84  Ultimo: 16:50:02      2  3875056955   CURUTCHET FEDERICO            
-Votos: 1210  SMSs:   79  Ultimo: 17:37:53      3  3875317289   GARCIA PAMELA ALEJANDRA       
-Votos: 1260  SMSs:   84  Ultimo: 17:30:00      0  3874028016   ENCINA CLAUDIA                
-Votos: 1341  SMSs:   94  Ultimo: 17:37:15      5  3874028405   ROMANO ARMADA MARTIN          
-Votos:  280  SMSs:   22  Ultimo: 17:32:23      3  3875841601   BARRIONUEVO VICTOR HUGO       
-Votos:  287  SMSs:   26  Ultimo: 17:24:25      5  3876055338   YANEZ NATALIA LORENA          
-Votos:  374  SMSs:   27  Ultimo: 17:36:37      7  3875747223   ARAGON DANA                   
-Votos:  393  SMSs:   25  Ultimo: 17:38:14      4  3875835814   LAMAS ANA GABRIELA            
-Votos:  539  SMSs:   37  Ultimo: 17:35:21      1  3874638502   CHAVARRIA BARBARA             
-Votos:  543  SMSs:   51  Ultimo: 17:38:14      4  3874864954   MONTANEZ CAROLINA             
-Votos:  562  SMSs:   54  Ultimo: 17:30:00      0  3875713403   LAMANNA MAURICIO              
-Votos:  602  SMSs:   47  Ultimo: 16:45:25      5  3875859160   FLORES MARIA NATALIA          
-Votos:  646  SMSs:   48  Ultimo: 17:36:50      0  3875733406   LAFUENTE ANA LOURDES          
-Votos:  656  SMSs:   74  Ultimo: 17:14:59      9  3874647262   NUNEZ LAURA                   
-Votos:  672  SMSs:   42  Ultimo: 17:38:34      4  3875187702   SARAVIA NANCY PATRICIA        
-Votos:  674  SMSs:   61  Ultimo: 17:37:28      8  3875987795   ALVERTI MARIELA               
-Votos:  676  SMSs:   71  Ultimo: 17:37:41      1  3875235939   BELMONTE AVILA ANDREA VERONICA
-Votos:  707  SMSs:   53  Ultimo: 17:37:41      1  3874419097   FAJARDO STELLA MARIS          
-Votos:  707  SMSs:   68  Ultimo: 17:31:04      4  3874415556   VARGAS FERRA NATALIA          
-Votos:  723  SMSs:   48  Ultimo: 17:22:00      0  3875745942   DURAN ANALIA                  
-Votos:  734  SMSs:   57  Ultimo: 17:34:56      6  3875165031   LAFUENTE JOAQUIN              
-Votos:  746  SMSs:   57  Ultimo: 17:10:51      1  3875115277   ALVERTI ANGEL                 
-Votos:  763  SMSs:   55  Ultimo: 16:53:13      3  3874830730   FERREYRA MILAGRO              
-Votos:  769  SMSs:   68  Ultimo: 17:28:43      3  3874143423   CHAVEZ ROSA                   
-Votos:  810  SMSs:   56  Ultimo: 17:26:18      8  3874770373   GUTIERREZ CONDE RICARDO       
-Votos:  893  SMSs:   61  Ultimo: 17:18:32      2  3874109330   FAVIAN RUBEN MATIAS           
-Votos:  908  SMSs:   61  Ultimo: 17:34:18      8  3875165583   ARANCIBIA CAROLINA            
-Votos:  924  SMSs:   59  Ultimo: 17:30:13      3  3874828167   GUTIERREZ PABLO EZEQUIEL      
-Votos:   93  SMSs:    6  Ultimo: 17:29:34      4  3875178741   RIVERO PABLO                  
-Votos:  953  SMSs:   78  Ultimo: 17:31:58      8  3874143422   CHAVEZ SILVIA                 
-Votos:  992  SMSs:   67  Ultimo: 17:38:14      4  3875812787   GONZALEZ MICAELA              
+Votos: 1006  SMSs: 103   Ultimo: 17:36:25       3875325754   MANSILLA NATALIA              
+Votos: 1018  SMSs: 64    Ultimo: 17:40:21       3874114350   GARCIA MARCELO ALEJANDRO      
+Votos: 1030  SMSs: 66    Ultimo: 17:16:30       3874404111   RUIZ JULIO NAZARENO           
+Votos: 1070  SMSs: 70    Ultimo: 17:41:25       3875104226   PALACIOS ROMINA               
+Votos: 109   SMSs: 7     Ultimo: 17:40:59       3875178741   RIVERO PABLO                  
+Votos: 1138  SMSs: 96    Ultimo: 17:22:13       3875324651   SAAVEDRA NELLY                
+Votos: 1167  SMSs: 84    Ultimo: 16:50:02       3875056955   CURUTCHET FEDERICO            
+Votos: 1226  SMSs: 80    Ultimo: 17:39:03       3875317289   GARCIA PAMELA ALEJANDRA       
+Votos: 1260  SMSs: 84    Ultimo: 17:30:00       3874028016   ENCINA CLAUDIA                
+Votos: 1357  SMSs: 95    Ultimo: 17:40:34       3874028405   ROMANO ARMADA MARTIN          
+Votos: 280   SMSs: 22    Ultimo: 17:32:23       3875841601   BARRIONUEVO VICTOR HUGO       
+Votos: 287   SMSs: 26    Ultimo: 17:24:25       3876055338   YANEZ NATALIA LORENA          
+Votos: 390   SMSs: 28    Ultimo: 17:41:12       3875747223   ARAGON DANA                   
+Votos: 425   SMSs: 27    Ultimo: 17:40:34       3875835814   LAMAS ANA GABRIELA            
+Votos: 539   SMSs: 37    Ultimo: 17:35:21       3874638502   CHAVARRIA BARBARA             
+Votos: 549   SMSs: 52    Ultimo: 17:40:46       3874864954   MONTANEZ CAROLINA             
+Votos: 569   SMSs: 55    Ultimo: 17:40:59       3875713403   LAMANNA MAURICIO              
+Votos: 602   SMSs: 47    Ultimo: 16:45:25       3875859160   FLORES MARIA NATALIA          
+Votos: 657   SMSs: 49    Ultimo: 17:41:25       3875733406   LAFUENTE ANA LOURDES          
+Votos: 675   SMSs: 78    Ultimo: 17:40:59       3874647262   NUNEZ LAURA                   
+Votos: 676   SMSs: 71    Ultimo: 17:37:41       3875235939   BELMONTE AVILA ANDREA VERONICA
+Votos: 680   SMSs: 62    Ultimo: 17:40:08       3875987795   ALVERTI MARIELA               
+Votos: 688   SMSs: 43    Ultimo: 17:41:12       3875187702   SARAVIA NANCY PATRICIA        
+Votos: 707   SMSs: 53    Ultimo: 17:37:41       3874419097   FAJARDO STELLA MARIS          
+Votos: 707   SMSs: 68    Ultimo: 17:31:04       3874415556   VARGAS FERRA NATALIA          
+Votos: 734   SMSs: 57    Ultimo: 17:34:56       3875165031   LAFUENTE JOAQUIN              
+Votos: 746   SMSs: 57    Ultimo: 17:10:51       3875115277   ALVERTI ANGEL                 
+Votos: 755   SMSs: 49    Ultimo: 17:40:46       3875745942   DURAN ANALIA                  
+Votos: 763   SMSs: 55    Ultimo: 16:53:13       3874830730   FERREYRA MILAGRO              
+Votos: 779   SMSs: 69    Ultimo: 17:39:36       3874143423   CHAVEZ ROSA                   
+Votos: 810   SMSs: 56    Ultimo: 17:26:18       3874770373   GUTIERREZ CONDE RICARDO       
+Votos: 893   SMSs: 61    Ultimo: 17:18:32       3874109330   FAVIAN RUBEN MATIAS           
+Votos: 908   SMSs: 61    Ultimo: 17:34:18       3875165583   ARANCIBIA CAROLINA            
+Votos: 939   SMSs: 60    Ultimo: 17:40:46       3874828167   GUTIERREZ PABLO EZEQUIEL      
+Votos: 953   SMSs: 78    Ultimo: 17:31:58       3874143422   CHAVEZ SILVIA                 
+Votos: 992   SMSs: 67    Ultimo: 17:38:14       3875812787   GONZALEZ MICAELA              
