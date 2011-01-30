@@ -35,6 +35,6 @@ Ultimo: 19:33:55  Votos: 1562  SMSs: 111    5  3874028016   ENCINA CLAUDIA
 Ultimo: 19:33:55  Votos: 1652  SMSs: 117    5  3875056955   CURUTCHET FEDERICO            
 Ultimo: 19:38:25  Votos: 1124  SMSs: 93     5  3875115277   ALVERTI ANGEL                 
 Ultimo: 19:40:22  Votos: 1533  SMSs: 106    2  3875104226   PALACIOS ROMINA               
-Ultimo: 19:42:19  Votos: 1328  SMSs: 88     9  3874114350   GARCIA MARCELO ALEJANDRO      
-Ultimo: 19:42:31  Votos: 1430  SMSs: 97     1  3874420347   ARAGON GABRIELA               
-Ultimo: 19:42:31  Votos: 38588  SMSs: 3041   1  38           TOTAL                         
+Ultimo: 19:45:22  Votos: 1456  SMSs: 99     2  3874420347   ARAGON GABRIELA               
+Ultimo: 19:46:49  Votos: 1336  SMSs: 90     9  3874114350   GARCIA MARCELO ALEJANDRO      
+Ultimo: 19:46:49  Votos: 38622  SMSs: 3045   9  38           TOTAL                         

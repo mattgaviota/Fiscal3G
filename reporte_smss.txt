@@ -7,7 +7,7 @@ SMSs: 117   Votos: 1652  Ultimo: 19:33:55      5  3875056955   CURUTCHET FEDERIC
 SMSs: 121   Votos: 1161  Ultimo: 19:18:21      1  3875325754   MANSILLA NATALIA              
 SMSs: 121   Votos: 1411  Ultimo: 18:43:34      4  3875324651   SAAVEDRA NELLY                
 SMSs: 17    Votos: 229   Ultimo: 19:03:27      7  3875178741   RIVERO PABLO                  
-SMSs: 3041  Votos: 38588  Ultimo: 19:42:31      1  38           TOTAL                         
+SMSs: 3045  Votos: 38622  Ultimo: 19:46:49      9  38           TOTAL                         
 SMSs: 30    Votos: 320   Ultimo: 18:05:48      8  3876055338   YANEZ NATALIA LORENA          
 SMSs: 30    Votos: 364   Ultimo: 19:15:06      6  3875841601   BARRIONUEVO VICTOR HUGO       
 SMSs: 41    Votos: 608   Ultimo: 18:52:13      3  3875835814   LAMAS ANA GABRIELA            
@@ -34,7 +34,7 @@ SMSs: 83    Votos: 1250  Ultimo: 18:58:26      6  3874404111   RUIZ JULIO NAZARE
 SMSs: 83    Votos: 827   Ultimo: 18:54:59      9  3874415556   VARGAS FERRA NATALIA          
 SMSs: 85    Votos: 1132  Ultimo: 19:20:25      5  3874830730   FERREYRA MILAGRO              
 SMSs: 86    Votos: 907   Ultimo: 18:32:51      1  3874143423   CHAVEZ ROSA                   
-SMSs: 88    Votos: 1328  Ultimo: 19:42:19      9  3874114350   GARCIA MARCELO ALEJANDRO      
+SMSs: 90    Votos: 1336  Ultimo: 19:46:49      9  3874114350   GARCIA MARCELO ALEJANDRO      
 SMSs: 93    Votos: 1124  Ultimo: 19:38:25      5  3875115277   ALVERTI ANGEL                 
 SMSs: 96    Votos: 809   Ultimo: 18:46:35      5  3874647262   NUNEZ LAURA                   
-SMSs: 97    Votos: 1430  Ultimo: 19:42:31      1  3874420347   ARAGON GABRIELA               
+SMSs: 99    Votos: 1456  Ultimo: 19:45:22      2  3874420347   ARAGON GABRIELA               
