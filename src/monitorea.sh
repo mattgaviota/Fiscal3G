@@ -16,3 +16,21 @@ awk '
         printf "Numero: %10d\n", $(NF-6)
     }
 ' reporte.txt | sort -n > reporte_votos.txt
+
+awk '
+    {
+        printf "SMSs: %4d  ", $(NF-2)
+        printf "Votos: %4d  ", $(NF-4)
+        printf "Ultimo: %s  ", $NF
+        printf "Numero: %10d\n", $(NF-6)
+    }
+' reporte.txt | sort -n > reporte_smss.txt
+
+awk '
+    {
+        printf "Ultimo: %s  ", $NF
+        printf "Votos: %4d  ", $(NF-4)
+        printf "SMSs: %4d  ", $(NF-2)
+        printf "Numero: %10d\n", $(NF-6)
+    }
+' reporte.txt | sort -n > reporte_ultimo.txt
