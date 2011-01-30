@@ -308,8 +308,15 @@ class Phonebook():
         
         mensaje = raw_input('Escriba mensaje a enviar: ')
         self.write_sms_to_folder(telefonos, mensaje)                
-        return True
-
+        return 0
+        
+    def write_sms_from_number(self):
+            numero = raw_input('Ingrese el número de telefono: ')
+            mensaje = raw_input('Escriba mensaje a enviar: ')
+            self.write_sms_to_folder([numero], mensaje)
+            return 0
+        
+        
 #main modules
 
 def menu():
@@ -332,9 +339,13 @@ def menu():
         Enviar Mensaje a
         [20] Aspectos
         [21] Contacto
+        [22] Número
         
         """
     return True
+
+def send_sms_to_number(phonebook):
+    phonebook.write_sms_from_number()
 
 def send_sms_to_contact(phonebook):
     phonebook.write_sms_to_send(False)
@@ -453,7 +464,8 @@ FUNCTION = {
             '18': write_aspects_to_phonebook_to_csv,
             '19': write_contacts_to_phonebook_to_csv,
             '20': send_sms_to_aspects,
-            '21': send_sms_to_contact
+            '21': send_sms_to_contact,
+            '22': send_sms_to_number
             }
     
 def main():
@@ -463,7 +475,7 @@ def main():
     os.system('clear')
     menu()
     option = raw_input('Ingrese opción: ')
-    while ((option) != ''):
+    while ((option) != 'salir'):
         try:
             #os.system('clear')
             FUNCTION[option](phonebook)
