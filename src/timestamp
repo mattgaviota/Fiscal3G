@@ -1,0 +1,2 @@
+#!/bin/sh
+echo `date +"%Y-%m-%d_%T"` $1
