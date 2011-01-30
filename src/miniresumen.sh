@@ -1,12 +1,12 @@
 #!/bin/sh
 
-uniq report_archive.csv | awk -v numero="$1," '
+uniq report_archive.csv | awk -v numero="$1" '
     $5~numero{
         total++
     }
 
     END{
-        printf "%05d ", total
+        printf "%06d ", total
     }
 '
 
@@ -16,7 +16,7 @@ awk -v numero="$1" '
     }
 
     END{
-        printf "%05d ", total
+        printf "%06d ", total
     }
 ' inbox_archive.mbox
 
