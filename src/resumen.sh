@@ -23,15 +23,20 @@ awk -v numero="$1" '
 awk -v numero="$1" '
 
     BEGIN{
-        hora = "Nunca"
+        hora = "000000"
     }
 
-    /From +/ && $2~numero{
-        hora = $(NF - 1)
+    $5~numero{
+        sub(",", "", $(NF - 1))
+        if (hora < $(NF -1))
+            hora = $(NF - 1)
     }
 
     END{
-        printf "  Ultimo: %-5s\n", hora
+        shora = substr(hora, 1, 2)
+        sminu = substr(hora, 3, 2)
+        ssegu = substr(hora, 5, 2)
+        printf "  Ultimo: %2d:%2d:%d\n", shora, sminu, ssegu
     }
 
-' inbox_archive.mbox
+' report_archive.csv
