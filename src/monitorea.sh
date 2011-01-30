@@ -10,27 +10,36 @@ awk -F "," '
 
 awk '
     {
-        printf "Votos: %4d  ", $1
-        printf "SMSs: %4d  ", $2
-        printf "Ultimo: %s  ", $3
-        printf "    %s\n", substr($0, 20, 100)
+        printf "Votos: %-4d  ", $1
+        printf "SMSs: %-4d  ", $2
+        printf "Ultimo: %8s  ", $3
+        printf "    %s\n", substr($0, 22, 100)
     }
 ' reporte.txt | sort -n > reporte_votos.txt
 
 awk '
     {
-        printf "SMSs: %4d  ", $2
-        printf "Votos: %4d  ", $1
-        printf "Ultimo: %s  ", $3
-        printf "    %s\n", substr($0, 20, 100)
+        printf "SMSs: %-4d  ", $2
+        printf "Votos: %-4d  ", $1
+        printf "Ultimo: %8s  ", $3
+        printf "    %s\n", substr($0, 22, 100)
     }
 ' reporte.txt | sort -n > reporte_smss.txt
 
 awk '
     {
-        printf "Ultimo: %s  ", $3
-        printf "Votos: %4d  ", $1
-        printf "SMSs: %4d  ", $2
-        printf "    %s\n", substr($0, 20, 100)
+        printf "Ultimo: %8s  ", $3
+        printf "Votos: %-4d  ", $1
+        printf "SMSs: %-4d  ", $2
+        printf " %s\n", substr($0, 22, 100)
     }
 ' reporte.txt | sort -n > reporte_ultimo.txt
+
+awk '
+    {
+        printf "%4d  ", $1
+        printf "%s  ", $3
+        printf "%4d  ", $2
+        printf "%s\n", substr($0, 22, 100)
+    }
+' reporte.txt | sort -n > minireporte.txt
