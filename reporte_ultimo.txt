@@ -7,22 +7,18 @@ Ultimo: 18:07:39  Votos: 695   SMSs: 55      3875859160   FLORES MARIA NATALIA
 Ultimo: 18:08:20  Votos: 156   SMSs: 11      3875178741   RIVERO PABLO                  
 Ultimo: 18:08:33  Votos: 594   SMSs: 57      3874864954   MONTANEZ CAROLINA             
 Ultimo: 18:16:49  Votos: 778   SMSs: 58      3874419097   FAJARDO STELLA MARIS          
-Ultimo: 18:20:31  Votos: 956   SMSs: 65      3875745942   DURAN ANALIA                  
 Ultimo: 18:21:09  Votos: 1529  SMSs: 107     3875056955   CURUTCHET FEDERICO            
 Ultimo: 18:25:25  Votos: 1105  SMSs: 115     3875325754   MANSILLA NATALIA              
 Ultimo: 18:26:16  Votos: 890   SMSs: 63      3874770373   GUTIERREZ CONDE RICARDO       
 Ultimo: 18:27:20  Votos: 784   SMSs: 49      3875187702   SARAVIA NANCY PATRICIA        
 Ultimo: 18:27:58  Votos: 504   SMSs: 33      3875835814   LAMAS ANA GABRIELA            
 Ultimo: 18:28:10  Votos: 542   SMSs: 41      3875747223   ARAGON DANA                   
-Ultimo: 18:29:00  Votos: 1198  SMSs: 79      3874404111   RUIZ JULIO NAZARENO           
 Ultimo: 18:29:51  Votos: 332   SMSs: 27      3875841601   BARRIONUEVO VICTOR HUGO       
 Ultimo: 18:30:24  Votos: 753   SMSs: 62      3875733406   LAFUENTE ANA LOURDES          
 Ultimo: 18:32:13  Votos: 805   SMSs: 95      3874647262   NUNEZ LAURA                   
-Ultimo: 18:32:13  Votos: 900   SMSs: 71      3875115277   ALVERTI ANGEL                 
 Ultimo: 18:32:51  Votos: 747   SMSs: 73      3875987795   ALVERTI MARIELA               
 Ultimo: 18:32:51  Votos: 907   SMSs: 86      3874143423   CHAVEZ ROSA                   
 Ultimo: 18:33:24  Votos: 1427  SMSs: 97      3874028016   ENCINA CLAUDIA                
-Ultimo: 18:33:49  Votos: 1135  SMSs: 99      3874143422   CHAVEZ SILVIA                 
 Ultimo: 18:34:23  Votos: 1043  SMSs: 76      3874830730   FERREYRA MILAGRO              
 Ultimo: 18:34:23  Votos: 816   SMSs: 80      3874415556   VARGAS FERRA NATALIA          
 Ultimo: 18:34:36  Votos: 1402  SMSs: 93      3875317289   GARCIA PAMELA ALEJANDRA       
@@ -31,8 +27,12 @@ Ultimo: 18:35:42  Votos: 770   SMSs: 81      3875235939   BELMONTE AVILA ANDREA 
 Ultimo: 18:35:55  Votos: 1490  SMSs: 106     3874028405   ROMANO ARMADA MARTIN          
 Ultimo: 18:36:15  Votos: 715   SMSs: 70      3875713403   LAMANNA MAURICIO              
 Ultimo: 18:36:15  Votos: 999   SMSs: 71      3874109330   FAVIAN RUBEN MATIAS           
-Ultimo: 18:36:28  Votos: 1146  SMSs: 75      3874420347   ARAGON GABRIELA               
-Ultimo: 18:36:28  Votos: 663   SMSs: 47      3874638502   CHAVARRIA BARBARA             
 Ultimo: 18:36:41  Votos: 1178  SMSs: 77      3874828167   GUTIERREZ PABLO EZEQUIEL      
-Ultimo: 18:36:41  Votos: 320   SMSs: 2803    38           TOTAL                         
 Ultimo: 18:36:41  Votos: 885   SMSs: 70      3875165031   LAFUENTE JOAQUIN              
+Ultimo: 18:36:53  Votos: 915   SMSs: 72      3875115277   ALVERTI ANGEL                 
+Ultimo: 18:37:14  Votos: 1143  SMSs: 100     3874143422   CHAVEZ SILVIA                 
+Ultimo: 18:37:14  Votos: 667   SMSs: 48      3874638502   CHAVARRIA BARBARA             
+Ultimo: 18:37:39  Votos: 1162  SMSs: 76      3874420347   ARAGON GABRIELA               
+Ultimo: 18:37:39  Votos: 1210  SMSs: 80      3874404111   RUIZ JULIO NAZARENO           
+Ultimo: 18:37:39  Votos: 320   SMSs: 2810    38           TOTAL                         
+Ultimo: 18:37:52  Votos: 963   SMSs: 66      3875745942   DURAN ANALIA                  
