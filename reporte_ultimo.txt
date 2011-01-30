@@ -39,5 +39,5 @@ Ultimo: 19:40:22  Votos: 1533  SMSs: 106    2  3875104226   PALACIOS ROMINA
 Ultimo: 20:03:20  Votos: 1415  SMSs: 97     0  3874114350   GARCIA MARCELO ALEJANDRO      
 Ultimo: 20:04:39  Votos: 1591  SMSs: 110    9  3874420347   ARAGON GABRIELA               
 Ultimo: 20:05:14  Votos: 1168  SMSs: 123    4  3875325754   MANSILLA NATALIA              
-Ultimo: 20:08:00  Votos: 38859  SMSs: 3067   0  38           TOTAL                         
-Ultimo: 20:11:02  Votos: 1684  SMSs: 119    2  3875056955   CURUTCHET FEDERICO            
+Ultimo: 20:13:02  Votos: 1700  SMSs: 120    2  3875056955   CURUTCHET FEDERICO            
+Ultimo: 20:13:02  Votos: 38891  SMSs: 3068   2  38           TOTAL                         
