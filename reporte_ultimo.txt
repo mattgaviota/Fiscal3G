@@ -20,17 +20,17 @@ Ultimo: 18:13:08  Votos: 767   SMSs: 90      3874647262   NUNEZ LAURA
 Ultimo: 18:13:46  Votos: 1096  SMSs: 94      3874143422   CHAVEZ SILVIA                 
 Ultimo: 18:13:46  Votos: 1327  SMSs: 113     3875324651   SAAVEDRA NELLY                
 Ultimo: 18:14:23  Votos: 709   SMSs: 69      3875713403   LAMANNA MAURICIO              
-Ultimo: 18:16:24  Votos: 1097  SMSs: 71      3874828167   GUTIERREZ PABLO EZEQUIEL      
 Ultimo: 18:16:24  Votos: 803   SMSs: 79      3874415556   VARGAS FERRA NATALIA          
 Ultimo: 18:16:24  Votos: 960   SMSs: 68      3874109330   FAVIAN RUBEN MATIAS           
 Ultimo: 18:16:49  Votos: 778   SMSs: 58      3874419097   FAJARDO STELLA MARIS          
-Ultimo: 18:17:30  Votos: 733   SMSs: 71      3875987795   ALVERTI MARIELA               
-Ultimo: 18:17:50  Votos: 876   SMSs: 81      3874143423   CHAVEZ ROSA                   
 Ultimo: 18:18:43  Votos: 743   SMSs: 59      3875733406   LAFUENTE ANA LOURDES          
 Ultimo: 18:18:56  Votos: 752   SMSs: 47      3875187702   SARAVIA NANCY PATRICIA        
 Ultimo: 18:19:28  Votos: 683   SMSs: 72      3875235939   BELMONTE AVILA ANDREA VERONICA
-Ultimo: 18:19:41  Votos: 952   SMSs: 64      3875745942   DURAN ANALIA                  
 Ultimo: 18:19:41  Votos: 964   SMSs: 70      3874830730   FERREYRA MILAGRO              
 Ultimo: 18:20:07  Votos: 492   SMSs: 37      3875747223   ARAGON DANA                   
 Ultimo: 18:20:07  Votos: 822   SMSs: 64      3875115277   ALVERTI ANGEL                 
-Ultimo: 18:20:19  Votos: 1513  SMSs: 106     3875056955   CURUTCHET FEDERICO            
+Ultimo: 18:20:19  Votos: 734   SMSs: 71      3875987795   ALVERTI MARIELA               
+Ultimo: 18:20:31  Votos: 956   SMSs: 65      3875745942   DURAN ANALIA                  
+Ultimo: 18:20:44  Votos: 890   SMSs: 82      3874143423   CHAVEZ ROSA                   
+Ultimo: 18:20:57  Votos: 1113  SMSs: 72      3874828167   GUTIERREZ PABLO EZEQUIEL      
+Ultimo: 18:21:09  Votos: 1529  SMSs: 107     3875056955   CURUTCHET FEDERICO            

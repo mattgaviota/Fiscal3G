@@ -1,5 +1,5 @@
 SMSs: 101   Votos: 1435  Ultimo: 18:07:52       3874028405   ROMANO ARMADA MARTIN          
-SMSs: 106   Votos: 1513  Ultimo: 18:20:19       3875056955   CURUTCHET FEDERICO            
+SMSs: 107   Votos: 1529  Ultimo: 18:21:09       3875056955   CURUTCHET FEDERICO            
 SMSs: 111   Votos: 1062  Ultimo: 18:00:08       3875325754   MANSILLA NATALIA              
 SMSs: 113   Votos: 1327  Ultimo: 18:13:46       3875324651   SAAVEDRA NELLY                
 SMSs: 11    Votos: 156   Ultimo: 18:08:20       3875178741   RIVERO PABLO                  
@@ -17,19 +17,19 @@ SMSs: 61    Votos: 880   Ultimo: 18:08:20       3874770373   GUTIERREZ CONDE RIC
 SMSs: 61    Votos: 908   Ultimo: 17:34:18       3875165583   ARANCIBIA CAROLINA            
 SMSs: 62    Votos: 810   Ultimo: 17:58:24       3875165031   LAFUENTE JOAQUIN              
 SMSs: 64    Votos: 822   Ultimo: 18:20:07       3875115277   ALVERTI ANGEL                 
-SMSs: 64    Votos: 952   Ultimo: 18:19:41       3875745942   DURAN ANALIA                  
+SMSs: 65    Votos: 956   Ultimo: 18:20:31       3875745942   DURAN ANALIA                  
 SMSs: 68    Votos: 1008  Ultimo: 17:44:24       3875812787   GONZALEZ MICAELA              
 SMSs: 68    Votos: 960   Ultimo: 18:16:24       3874109330   FAVIAN RUBEN MATIAS           
 SMSs: 69    Votos: 709   Ultimo: 18:14:23       3875713403   LAMANNA MAURICIO              
 SMSs: 70    Votos: 964   Ultimo: 18:19:41       3874830730   FERREYRA MILAGRO              
-SMSs: 71    Votos: 1097  Ultimo: 18:16:24       3874828167   GUTIERREZ PABLO EZEQUIEL      
 SMSs: 71    Votos: 1129  Ultimo: 17:59:42       3874114350   GARCIA MARCELO ALEJANDRO      
-SMSs: 71    Votos: 733   Ultimo: 18:17:30       3875987795   ALVERTI MARIELA               
+SMSs: 71    Votos: 734   Ultimo: 18:20:19       3875987795   ALVERTI MARIELA               
+SMSs: 72    Votos: 1113  Ultimo: 18:20:57       3874828167   GUTIERREZ PABLO EZEQUIEL      
 SMSs: 72    Votos: 683   Ultimo: 18:19:28       3875235939   BELMONTE AVILA ANDREA VERONICA
 SMSs: 75    Votos: 1161  Ultimo: 18:02:46       3874404111   RUIZ JULIO NAZARENO           
 SMSs: 79    Votos: 803   Ultimo: 18:16:24       3874415556   VARGAS FERRA NATALIA          
 SMSs: 80    Votos: 1223  Ultimo: 18:00:22       3875104226   PALACIOS ROMINA               
-SMSs: 81    Votos: 876   Ultimo: 18:17:50       3874143423   CHAVEZ ROSA                   
+SMSs: 82    Votos: 890   Ultimo: 18:20:44       3874143423   CHAVEZ ROSA                   
 SMSs: 85    Votos: 1306  Ultimo: 17:54:44       3875317289   GARCIA PAMELA ALEJANDRA       
 SMSs: 90    Votos: 767   Ultimo: 18:13:08       3874647262   NUNEZ LAURA                   
 SMSs: 94    Votos: 1096  Ultimo: 18:13:46       3874143422   CHAVEZ SILVIA                 
