@@ -36,7 +36,7 @@ awk -v numero="$1" '
         shora = substr(hora, 1, 2)
         sminu = substr(hora, 3, 2)
         ssegu = substr(hora, 5, 2)
-        printf "  Ultimo: %2d:%2d:%d\n", shora, sminu, ssegu
+        printf "  Ultimo: %02d:%02d:%02d\n", shora, sminu, ssegu
     }
 
 ' report_archive.csv
