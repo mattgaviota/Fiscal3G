@@ -7,7 +7,7 @@ import MySQLdb
 import shutil
 import sys
 
-REPORT_ARCHIVE = path.abspath("report_archive.mbox")
+REPORT_ARCHIVE = path.abspath("report_archive.csv")
 
 class Query():
 
@@ -79,22 +79,23 @@ def main():
     
     try:
         db.connect_to_db(db.get_serverdata())
+        conectado = True
     except:
+        conectado = False
         print("    XX Está la base de datos online?")
         for arg in sys.argv[1:]:
             shutil.move(arg, "to_db/%s" % arg.split("/")[-1])
-    else:
-        for arg in sys.argv[1:]:
-            db.set_path(arg)
-            db.format_data_to_insert()
-            
-            with open(REPORT_ARCHIVE, "a") as file:
-                file.write("%s\n" % db.get_reports)
-            
+
+    for arg in sys.argv[1:]:
+        db.set_path(arg)
+        db.format_data_to_insert()
+        
+        with open(REPORT_ARCHIVE, "a") as file:
             for report in db.get_reports():
-                db.insert_to_db(report)
+                file.write("%s\n" % str(report))
+                if conectado:
+                    db.insert_to_db(report)
             
-            #os.remove(arg)
     return 0
 
 if __name__ == '__main__':
