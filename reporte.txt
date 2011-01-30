@@ -1,38 +1,38 @@
-ALVERTI ANGEL                  3875115277  Votos: 428    SMSs: 35     Ultimo: 15:21:02
-ALVERTI MARIELA                3875987795  Votos: 424    SMSs: 34     Ultimo: 15:20:16
-ARAGON BELEN                   3874420347  Votos: 476    SMSs: 32     Ultimo: 15:11:50
-ARAGON DANA                    3875747223  Votos: 226    SMSs: 16     Ultimo: 14:20:34
-ARANCIBIA CAROLINA             3875165583  Votos: 582    SMSs: 40     Ultimo: 15:10:40
-BARRIONUEVO VICTOR HUGO        3875841601  Votos: 173    SMSs: 14     Ultimo: 14:51:19
-BELMONTE AVILA ANDREA VERONICA 3875235939  Votos: 370    SMSs: 39     Ultimo: 15:17:36
-CHAVARRIA BARBARA              3874638502  Votos: 318    SMSs: 23     Ultimo: 14:21:29
-CHAVEZ ROSA                    3874143423  Votos: 470    SMSs: 38     Ultimo: 15:13:52
-CHAVEZ SILVIA                  3874143422  Votos: 643    SMSs: 51     Ultimo: 15:10:40
+ALVERTI ANGEL                  3875115277  Votos: 500    SMSs: 41     Ultimo: 15:34:57
+ALVERTI MARIELA                3875987795  Votos: 482    SMSs: 38     Ultimo: 15:58:20
+ARAGON DANA                    3875747223  Votos: 236    SMSs: 17     Ultimo: 15:59:27
+ARANCIBIA CAROLINA             3875165583  Votos: 678    SMSs: 46     Ultimo: 15:40:13
+BARRIONUEVO VICTOR HUGO        3875841601  Votos: 188    SMSs: 15     Ultimo: 15:51:38
+BELMONTE AVILA ANDREA VERONICA 3875235939  Votos: 444    SMSs: 48     Ultimo: 15:58:59
+CHAVARRIA BARBARA              3874638502  Votos: 396    SMSs: 28     Ultimo: 15:35:43
+CHAVEZ ROSA                    3874143423  Votos: 577    SMSs: 48     Ultimo: 15:55:20
+CHAVEZ SILVIA                  3874143422  Votos: 733    SMSs: 60     Ultimo: 15:52:51
 CISNEROS SILVIA SUSANA         3875749211  Votos: 0      SMSs: 0      Ultimo: 00:00:00
 CORDOBA PEDRO                  3886548961  Votos: 212    SMSs: 15     Ultimo: 12:49:54
-CURUTCHET FEDERICO             3875056955  Votos: 929    SMSs: 69     Ultimo: 15:17:49
-DURAN ANALIA                   3875745942  Votos: 482    SMSs: 31     Ultimo: 15:14:37
-ENCINA CLAUDIA                 3874028016  Votos: 816    SMSs: 54     Ultimo: 15:21:02
-FAJARDO STELLA MARIS           3874419097  Votos: 410    SMSs: 30     Ultimo: 15:21:15
-FAVIAN RUBEN MATIAS            3874109330  Votos: 523    SMSs: 35     Ultimo: 15:21:02
+CURUTCHET FEDERICO             3875056955  Votos: 977    SMSs: 71     Ultimo: 15:36:21
+DURAN ANALIA                   3875745942  Votos: 610    SMSs: 39     Ultimo: 15:38:11
+ENCINA CLAUDIA                 3874028016  Votos: 932    SMSs: 63     Ultimo: 15:58:08
+FAJARDO STELLA MARIS           3874419097  Votos: 585    SMSs: 44     Ultimo: 15:58:34
+FAVIAN RUBEN MATIAS            3874109330  Votos: 647    SMSs: 43     Ultimo: 15:58:59
 FERREYRA MILAGRO               3874830730  Votos: 701    SMSs: 50     Ultimo: 15:15:27
 FLORES MARIA NATALIA           3875859160  Votos: 351    SMSs: 29     Ultimo: 14:57:24
-GARCIA MARCELO ALEJANDRO       3874114350  Votos: 571    SMSs: 36     Ultimo: 14:48:06
-GARCIA PAMELA ALEJANDRA        3875317289  Votos: 776    SMSs: 51     Ultimo: 15:12:23
-GONZALEZ MICAELA               3875812787  Votos: 624    SMSs: 43     Ultimo: 15:13:26
-GUTIERREZ CONDE RICARDO        3874770373  Votos: 521    SMSs: 37     Ultimo: 15:13:26
-GUTIERREZ PABLO EZEQUIEL       3874828167  Votos: 545    SMSs: 35     Ultimo: 15:20:42
-LAFUENTE ANA LOURDES           3875733406  Votos: 370    SMSs: 24     Ultimo: 14:33:43
-LAFUENTE JOAQUIN               3875165031  Votos: 469    SMSs: 38     Ultimo: 15:20:29
-LAMANNA MAURICIO               3875713403  Votos: 395    SMSs: 38     Ultimo: 15:02:49
-MANSILLA NATALIA               3875325754  Votos: 676    SMSs: 63     Ultimo: 14:59:40
-MONTANEZ CAROLINA              3874864954  Votos: 300    SMSs: 28     Ultimo: 14:22:01
-NUNEZ LAURA                    3874647262  Votos: 407    SMSs: 44     Ultimo: 14:43:56
+GARCIA MARCELO ALEJANDRO       3874114350  Votos: 683    SMSs: 43     Ultimo: 15:58:34
+GARCIA PAMELA ALEJANDRA        3875317289  Votos: 895    SMSs: 59     Ultimo: 15:50:15
+GONZALEZ MICAELA               3875812787  Votos: 702    SMSs: 48     Ultimo: 15:58:46
+GUTIERREZ CONDE RICARDO        3874770373  Votos: 598    SMSs: 42     Ultimo: 15:56:57
+GUTIERREZ PABLO EZEQUIEL       3874828167  Votos: 657    SMSs: 43     Ultimo: 15:57:55
+LAFUENTE ANA LOURDES           3875733406  Votos: 478    SMSs: 31     Ultimo: 15:59:40
+LAFUENTE JOAQUIN               3875165031  Votos: 550    SMSs: 44     Ultimo: 15:57:43
+LAMANNA MAURICIO               3875713403  Votos: 441    SMSs: 44     Ultimo: 15:41:32
+LAMAS ANA GABRIELA             3875835814  Votos: 191    SMSs: 12     Ultimo: 15:59:40
+MANSILLA NATALIA               3875325754  Votos: 731    SMSs: 71     Ultimo: 15:37:25
+MONTANEZ CAROLINA              3874864954  Votos: 379    SMSs: 36     Ultimo: 15:41:57
+NUNEZ LAURA                    3874647262  Votos: 512    SMSs: 55     Ultimo: 15:43:08
 PALACIOS ROMINA                3875104226  Votos: 530    SMSs: 35     Ultimo: 13:56:53
-ROMANO ARMADA MARTIN           3874028405  Votos: 790    SMSs: 54     Ultimo: 15:20:29
-RUIZ JULIO NAZARENO            3874404111  Votos: 476    SMSs: 30     Ultimo: 13:39:36
-SAAVEDRA NELLY                 3875324651  Votos: 767    SMSs: 64     Ultimo: 15:19:38
-SANCHEZ PERRY MARIA INES       3876840041  Votos: 342    SMSs: 24     Ultimo: 14:55:54
+ROMANO ARMADA MARTIN           3874028405  Votos: 973    SMSs: 67     Ultimo: 15:57:22
+RUIZ JULIO NAZARENO            3874404111  Votos: 713    SMSs: 45     Ultimo: 15:49:09
+SAAVEDRA NELLY                 3875324651  Votos: 858    SMSs: 72     Ultimo: 15:55:33
+SANCHEZ PERRY MARIA INES       3876840041  Votos: 355    SMSs: 25     Ultimo: 15:30:04
 SARAVIA NANCY PATRICIA         3875187702  Votos: 416    SMSs: 26     Ultimo: 15:11:12
-VARGAS FERRA NATALIA           3874415556  Votos: 462    SMSs: 39     Ultimo: 15:14:50
-YANEZ NATALIA LORENA           3876055338  Votos: 173    SMSs: 15     Ultimo: 15:17:24
+VARGAS FERRA NATALIA           3874415556  Votos: 548    SMSs: 49     Ultimo: 15:58:59
+YANEZ NATALIA LORENA           3876055338  Votos: 189    SMSs: 16     Ultimo: 15:35:10
