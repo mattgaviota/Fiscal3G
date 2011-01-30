@@ -1,2 +1,17 @@
 #!/bin/sh
-echo $3|gnokii --config "$1" --sendsms "$2" -r
+awk -v config="$1" -v smsfile="$2" '
+
+NR==1{
+    numero = $0
+    }
+
+NR==2{
+    mensaje = $0
+    }
+
+END{
+    system("echo \"" mensaje "\" |gnokii --config \"" config "\" --sendsms \""\
+        numero "\" -r")
+    }
+    
+' $2
