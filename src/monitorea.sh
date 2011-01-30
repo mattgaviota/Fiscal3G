@@ -10,7 +10,7 @@ awk -F "," '
 
 awk '
     {
-        printf "Votos: %-4d  ", $1
+        printf "Votos: %-5d  ", $1
         printf "SMSs: %-4d  ", $2
         printf "Ultimo: %8s  ", $3
         printf "    %s\n", substr($0, 22, 100)
