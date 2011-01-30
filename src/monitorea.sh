@@ -37,7 +37,7 @@ awk '
 
 awk '
     {
-        printf "%4d  ", $1
+        printf "%5d  ", $1
         printf "%s  ", $3
         printf "%4d  ", $2
         printf "%s\n", substr($0, 22, 100)
