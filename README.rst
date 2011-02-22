@@ -29,9 +29,9 @@ TODO:
 -----
 
 * Reimplementar sistema en función de:
-  * las librerías de gnokii (previo verificar que el bug no esté implementado
+** las librerías de gnokii (previo verificar que el bug no esté implementado
 a este nivel)
-  * gnokii como aplicación stand-alone (mejorando versión actual)
+** gnokii como aplicación stand-alone (mejorando versión actual)
 * Incluir una interfaz más amigable
 * Prepararlo para generar estadisticas en vivo. Se puede tomar como referencia
   los reportes*.txt en este directorio. Se debe discriminar la información de
